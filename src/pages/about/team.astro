@@ -1,0 +1,266 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="本校經營團隊 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>本校經營團隊</h1>
+      <p>教師與家長共同承擔教育責任</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <!-- 經營理念 -->
+      <div class="intro-block">
+        <h2>核心經營理念</h2>
+        <p>做為一所「自由華德福學校」，我們追求一所教師與家長彼此融為一體而共同承擔教育責任的學校</p>
+        <p class="sub">為實踐自主辦學理想，內外組織運作之三原則是：</p>
+        <div class="principles">
+          <span class="principle">獨立</span>
+          <span class="principle">平衡</span>
+          <span class="principle">合作</span>
+        </div>
+      </div>
+
+      <!-- 三元核心組織架構圖 -->
+      <div class="org-chart">
+        <div class="org-title">三元核心</div>
+        
+        <div class="org-diagram">
+          <!-- 正三角形排列的三個圓 -->
+          <svg class="triangle-svg" viewBox="0 0 400 380" preserveAspectRatio="xMidYMid meet">
+            <!-- 連接線 -->
+            <polygon points="200,50 50,300 350,300" fill="none" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <!-- 上方 - 協會 -->
+            <g class="org-node top">
+              <circle cx="200" cy="60" r="55" fill="url(#grad1)"/>
+              <text x="200" y="50" text-anchor="middle" font-size="22">🏛️</text>
+              <text x="200" y="68" text-anchor="middle" font-size="11" fill="white">高雄市華德福</text>
+              <text x="200" y="82" text-anchor="middle" font-size="11" fill="white">教育協會</text>
+            </g>
+            
+            <!-- 左下 - 學校 -->
+            <g class="org-node left">
+              <circle cx="70" cy="290" r="55" fill="url(#grad2)"/>
+              <text x="70" y="280" text-anchor="middle" font-size="22">🏫</text>
+              <text x="70" y="298" text-anchor="middle" font-size="11" fill="white">光禾華德福</text>
+              <text x="70" y="312" text-anchor="middle" font-size="11" fill="white">實驗學校</text>
+            </g>
+            
+            <!-- 右下 - 家長會 -->
+            <g class="org-node right">
+              <circle cx="330" cy="290" r="55" fill="url(#grad3)"/>
+              <text x="330" y="280" text-anchor="middle" font-size="22">👨‍👩‍👧</text>
+              <text x="330" y="298" text-anchor="middle" font-size="11" fill="white">學校家長會</text>
+            </g>
+            
+            <!-- 中央 - 校發小組 -->
+            <g class="center-node">
+              <circle cx="200" cy="210" r="45" fill="white" stroke="#228B22" stroke-width="4"/>
+              <text x="200" y="205" text-anchor="middle" font-size="20">🎯</text>
+              <text x="200" y="223" text-anchor="middle" font-size="12" fill="#228B22" font-weight="bold">校發小組</text>
+            </g>
+            
+            <!-- 漸層定義 -->
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF9800"/>
+                <stop offset="100%" style="stop-color:#F57C00"/>
+              </linearGradient>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#8B4513"/>
+                <stop offset="100%" style="stop-color:#A0522D"/>
+              </linearGradient>
+              <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#607D8B"/>
+                <stop offset="100%" style="stop-color:#455A64"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 三大組織說明 -->
+      <div class="org-details">
+        
+        <div class="detail-card">
+          <h2>一，光禾華德福實驗學校</h2>
+          <p class="subtitle">全權負責校務</p>
+          <ul>
+            <li><strong>校務發展小組</strong> - 負責重大決策</li>
+            <li><strong>教師會議</strong> - 負責教學活動與教師成長</li>
+            <li><strong>行政處室</strong> - 處理財務、總務、人事，教務、學務等支援工作</li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h2>二、學校家長會</h2>
+          <p class="subtitle">家長參與支持</p>
+          <ul>
+            <li>負責家長會議，家長互助</li>
+            <li>親職成長課程及義務工組織</li>
+            <li>派代表參與學校各項會議，協助校務運作</li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h2>三、高雄市華德福教育協會</h2>
+          <p class="subtitle">三足鼎立，密切合作</p>
+          <ul>
+            <li>與學校，家長會形成「三足鼎立」的關係</li>
+            <li>各自獨立運作但密切合作</li>
+            <li>透過「校發小組會議」進行合作</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 校發小組 -->
+      <div class="meeting-section">
+        <h2>📋 校發小組會議</h2>
+        <p class="meeting-desc">透過「校發小組會議」進行合作，成員包含協會代表、學校代表，家長代表、高中學生自治會代表及專業顧問，是一個未來導向的溝通平台。</p>
+        
+        <div class="tasks-grid">
+          <div class="task-item">
+            <span class="task-icon">🌟</span>
+            <p>推動及支持本校長期發展的整體願景</p>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">📚</span>
+            <p>推廣人智學教育</p>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">🤝</span>
+            <p>協助校務運作、爭取社會資源</p>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">👶</span>
+            <p>維護兒童受教權</p>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">🏘️</span>
+            <p>學校與社區的結合</p>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">🌈</span>
+            <p>促進教育多元發展</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small { background: linear-gradient(135deg, #8B4513, #228B22); color: white; padding: 4rem 2rem; text-align: center; }
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .intro-block { 
+    background: linear-gradient(135deg, #e8f5e9, #fff); 
+    padding: 2.5rem; 
+    border-radius: 20px; 
+    text-align: center; 
+    margin-bottom: 2rem;
+    border: 2px solid #228B22;
+  }
+  .intro-block h2 { color: #8B4513; margin-bottom: 1rem; }
+  .intro-block > p { color: #333; font-size: 1.15rem; line-height: 1.8; margin-bottom: 1rem; }
+  .intro-block .sub { color: #666; font-style: italic; margin-bottom: 1.5rem; }
+  
+  .principles { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .principle { 
+    background: #228B22; 
+    color: white; 
+    padding: 0.8rem 2rem; 
+    border-radius: 30px; 
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .org-chart { 
+    background: white; 
+    padding: 2rem; 
+    border-radius: 20px; 
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+    text-align: center;
+  }
+  .org-title { color: #8B4513; font-size: 1.5rem; margin-bottom: 2rem; font-weight: bold; }
+  
+  .org-diagram {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .triangle-svg {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+  }
+  
+  .org-node { cursor: pointer; }
+
+  .org-details { margin-bottom: 2rem; }
+  .detail-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 20px rgba(139,69,19,0.1);
+  }
+  .detail-card h2 { color: #8B4513; font-size: 1.3rem; margin-bottom: 0.3rem; }
+  .detail-card .subtitle { color: #228B22; font-weight: bold; margin-bottom: 1rem; }
+  .detail-card ul { padding-left: 1.2rem; }
+  .detail-card li { color: #555; padding: 0.4rem 0; }
+
+  .meeting-section {
+    background: linear-gradient(135deg, #fff3e0, #fff);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid #ff9800;
+  }
+  .meeting-section h2 { color: #e65100; margin-bottom: 1rem; }
+  .meeting-desc { color: #555; line-height: 1.7; margin-bottom: 1.5rem; }
+  
+  .tasks-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1rem; 
+  }
+  .task-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  .task-icon { font-size: 1.5rem; }
+  .task-item p { color: #555; margin: 0; font-size: 0.95rem; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+
+  @media (max-width: 600px) {
+    .org-row { gap: 1.5rem; }
+    .org-circle { width: 110px; height: 110px; }
+    .org-center { width: 80px; height: 80px; }
+  }
+</style>

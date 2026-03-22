@@ -1,0 +1,246 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="招生簡章 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>招生簡章</h1>
+      <p>115學年度招生中</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="info-card">
+        <h2>國中部招生簡章</h2>
+        <p>115學年度國中部招生簡章，歡迎下載參閱：</p>
+        <div class="download-links">
+          <a href="#" class="download-btn docx">
+            <span class="icon">📄</span>
+            <span class="text">Word 檔</span>
+          </a>
+          <a href="#" class="download-btn pdf">
+            <span class="icon">📕</span>
+            <span class="text">PDF 檔</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>招生年級與名額</h2>
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>年級</th>
+              <th>招生名額</th>
+              <th>備註</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>國小一年級</td>
+              <td>20名</td>
+              <td>額滿為止</td>
+            </tr>
+            <tr>
+              <td>國小二至六年級</td>
+              <td>若干名</td>
+              <td>有缺額時招收</td>
+            </tr>
+            <tr>
+              <td>國中一年級</td>
+              <td>15名</td>
+              <td>額滿為止</td>
+            </tr>
+            <tr>
+              <td>高中一年級</td>
+              <td>20名</td>
+              <td>額滿為止</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-card">
+        <h2>報名資格</h2>
+        <ul class="requirement-list">
+          <li>應屆國小畢業生或同等學力</li>
+          <li>對華德福教育有興趣之家長與學生</li>
+          <li>認同本校教育理念</li>
+          <li>能配合本校課程與活動安排</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>報名流程</h2>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>填寫報名表</h3>
+            <p>線上填寫報名資料</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>繳交資料</h3>
+            <p>繳交相關證明文件</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>參加說明會</h3>
+            <p>帶孩子一起參加課程體驗</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>錄取通知</h3>
+            <p>收到錄取通知後完成報到</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>學雜費說明</h2>
+        <p>本校為公立實驗學校，依規定收取學雜費。<br>
+        詳細收費標準將於招生說明會中說明。</p>
+      </div>
+
+      <div class="info-card">
+        <h2>聯絡資訊</h2>
+        <ul class="contact-list">
+          <li>電話：07-7885128</li>
+          <li>Email：waldorf.tw.kh@gmail.com</li>
+          <li>地址：高雄市前鎮區德昌路345號</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .info-card h2 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e0d4c8;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .info-table th, .info-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0d4c8;
+  }
+
+  .info-table th {
+    background: #FFF8DC;
+    color: #8B4513;
+    font-weight: 600;
+  }
+
+  .requirement-list, .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .requirement-list li, .contact-list li {
+    padding: 0.8rem 0;
+    color: #666;
+    border-bottom: 1px solid #e0d4c8;
+  }
+
+  .requirement-list li:last-child, .contact-list li:last-child {
+    border-bottom: none;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .step {
+    text-align: center;
+    padding: 1rem;
+    background: #FFF8DC;
+    border-radius: 15px;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+  }
+
+  .step h3 { color: #8B4513; font-size: 1rem; margin-bottom: 0.5rem; }
+  .step p { color: #666; font-size: 0.9rem; margin: 0; }
+
+  .download-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .download-btn:hover { transform: translateY(-2px); }
+
+  .download-btn.docx { background: #2196F3; color: white; }
+  .download-btn.pdf { background: #f44336; color: white; }
+
+  .download-btn .icon { font-size: 1.5rem; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; }
+
+  @media (max-width: 768px) {
+    .process-steps { grid-template-columns: 1fr 1fr; }
+  }
+</style>

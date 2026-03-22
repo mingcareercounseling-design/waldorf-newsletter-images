@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="首頁 | 光禾華德福實驗學校">
+  <Navigation />
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="gradient-text">光禾華德福實驗學校</span>
+      </h1>
+      <p class="hero-subtitle">用愛與自然，啟發孩子的無限可能</p>
+      <div class="hero-buttons">
+        <a href="/admissions" class="btn-primary">立即報名</a>
+        <a href="/about/philosophy" class="btn-secondary">了解更多</a>
+      </div>
+    </div>
+    <div class="hero-decoration">🍃</div>
+  </section>
+
+  <!-- 最新消息 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">最新消息</h2>
+      <div class="news-grid">
+        <div class="news-card">
+          <span class="news-date">2026.03.21</span>
+          <h3>115學年度招生說明會</h3>
+          <p>在春光漸暖的時節，邀請您走進孩子真實而生動的學習現場，感受光禾華德福教育所蘊藏的節奏、力量與生命感。</p>
+          <p>本次春季招生說明會特別安排課程體驗，包含國小部英文與中學部數學（向量）。</p>
+          <p>📅 截止日期：115年03月16日（週一）12:00</p>
+          <a href="/admissions/seminar" class="read-more">詳細資訊 →</a>
+        </div>
+        <div class="news-card">
+          <span class="news-date">2024.12.15</span>
+          <h3>榮登2024世界華德福學校名錄</h3>
+          <p>光禾成為台灣唯一入選的學校！</p>
+        </div>
+        <div class="news-card">
+          <span class="news-date">2024.09.01</span>
+          <h3>全校搬遷至前鎮區興仁國中校區</h3>
+          <p>嶄新的學習環境，更多元的發展可能</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學校特色 -->
+  <section class="section features">
+    <div class="container">
+      <h2 class="section-title">教育理念</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌈</div>
+          <h3>全人教育</h3>
+          <p>重視孩子的身、心、靈均衡發展</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>藝術融入</h3>
+          <p>音樂、美術、工藝成為日常一部分</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌳</div>
+          <h3>自然體驗</h3>
+          <p>在自然中學習，感受生命的力量</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h3>故事教學</h3>
+          <p>透過故事啟發想像力與創造力</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 光禾的蛻變與成長 -->
+  <section class="section history">
+    <div class="container">
+      <h2 class="section-title">光禾的蛻變與成長</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">101</div>
+          <div class="content">於鳳山中崙國小成立「中崙共學園」</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">104</div>
+          <div class="content">高雄市教育局申請通過成為「光禾華德福實驗教育機構」</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">107</div>
+          <div class="content">因應實驗規範通過，高雄市教育局向國教署申請正名為「光禾華德福實驗學校」</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">108</div>
+          <div class="content">春學季遷校至和春技術學院大發校區實踐十二年一貫的華德福實驗教育</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">110</div>
+          <div class="content">成立南台灣第一所學校型態的華德福實驗高中<br>成立臺灣實驗教育聯盟南部辦公室<br>經高雄市教育局評鑑，榮獲最高「優等」</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">112</div>
+          <div class="content">國中教學正常化視導榮獲「績優」<br>榮登2024世界華德福學校名錄</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">113</div>
+          <div class="content">全校搬遷前鎮區興仁國中校區<br>高雄市實驗學校型態評鑑榮獲「優等獎」</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 招生資訊 -->
+  <section class="section admissions">
+    <div class="container">
+      <div class="admissions-card">
+        <h2>115學年度招生中</h2>
+        <p>歡迎加入光禾華德福大家庭</p>
+        <ul class="admissions-info">
+          <li>📍 高雄市前鎮區德昌路345號</li>
+          <li>📞 07-7885128</li>
+          <li>📧 waldorf.kh@gmail.com</li>
+        </ul>
+        <a href="https://forms.gle/Sa2uHLVTBgXPrBKi6" target="_blank" class="btn-primary">
+          立即報名
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>光禾華德福實驗學校</h3>
+          <p>用愛與自然，啟發孩子的無限可能</p>
+          <p>Kuang-He Waldorf School, Kaohsiung, Taiwan</p>
+        </div>
+        <div class="footer-section">
+          <h4>聯絡資訊</h4>
+          <p>📍 高雄市前鎮區德昌路345號 (興仁國中 理學大樓)</p>
+          <p>📞 07-7885128</p>
+          <p>📧 waldorf.kh@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>關注我們</h4>
+          <p>📱 <a href="https://zh-tw.facebook.com/光禾華德福教育-831876970225632/" target="_blank">光禾華德福教育 Facebook</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fdf6e3 0%, #fff8dc 50%, #fef3c7 100%);
+  }
+
+  .hero-content { z-index: 2; padding: 2rem; }
+  .hero-title { font-size: 4rem; margin-bottom: 1rem; }
+  .hero-subtitle { font-size: 1.5rem; color: #666; margin-bottom: 2rem; }
+  .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
+  .hero-decoration { position: absolute; font-size: 20rem; opacity: 0.1; right: -5%; bottom: -5%; }
+
+  .section { padding: 5rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-title { text-align: center; font-size: 2.5rem; color: #8B4513; margin-bottom: 3rem; }
+
+  .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .news-card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(139, 69, 19, 0.1); transition: transform 0.3s ease; }
+  .news-card:hover { transform: translateY(-5px); }
+  .news-date { color: #228B22; font-size: 0.9rem; font-weight: 500; }
+  .news-card h3 { margin: 0.5rem 0; color: #333; }
+  .news-card p { color: #666; font-size: 0.95rem; margin: 0.5rem 0; }
+  .read-more { color: #FF8C00; text-decoration: none; font-weight: 500; }
+
+  .features { background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+  .feature-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px rgba(34, 139, 34, 0.1); }
+  .feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+  .history { background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%); }
+  .timeline { display: grid; gap: 1rem; }
+  .timeline-item { display: flex; gap: 1rem; background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(139, 69, 19, 0.1); }
+  .timeline-item .year { background: #8B4513; color: white; padding: 0.5rem 1rem; border-radius: 10px; font-weight: bold; white-space: nowrap; }
+  .timeline-item .content { color: #666; }
+
+  .admissions { background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); }
+  .admissions-card { text-align: center; padding: 3rem; background: rgba(255, 255, 255, 0.1); border-radius: 30px; backdrop-filter: blur(10px); color: white; }
+  .admissions-card h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+  .admissions-info { list-style: none; padding: 0; margin: 2rem 0; font-size: 1.1rem; }
+  .admissions-info li { margin: 0.5rem 0; }
+
+  .footer { background: #333; color: white; padding: 3rem 2rem 1rem; }
+  .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+  .footer h3, .footer h4 { margin-bottom: 1rem; }
+  .footer a { color: #87CEEB; }
+  .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #999; }
+
+  .btn-primary { background: linear-gradient(135deg, #8B4513, #FF8C00); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3); }
+  .btn-secondary { background: white; color: #8B4513; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 500; border: 2px solid #8B4513; transition: all 0.3s ease; display: inline-block; }
+  .btn-secondary:hover { background: #8B4513; color: white; }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; }
+    .timeline-item { flex-direction: column; }
+  }
+</style>

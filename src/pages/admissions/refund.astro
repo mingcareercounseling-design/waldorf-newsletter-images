@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="收退費辦法 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>收退費辦法</h1>
+      <p>光禾華德福實驗學校</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="info-card">
+        <h2>一、主要費用（每學年計）</h2>
+        
+        <div class="fee-item">
+          <h3>📝 註冊費</h3>
+          <p class="amount">新台幣 <strong>15,000 元</strong></p>
+          <p class="note">每年收取一次</p>
+        </div>
+
+        <div class="fee-item">
+          <h3>📚 學雜費（分兩次收取）</h3>
+          <p class="note">於每年1月及7月前繳納</p>
+          <table class="fee-table">
+            <tr>
+              <td>國小部</td>
+              <td class="amount">每年 <strong>130,000 元</strong></td>
+            </tr>
+            <tr>
+              <td>國中部</td>
+              <td class="amount">每年 <strong>150,000 元</strong></td>
+            </tr>
+            <tr>
+              <td>高中部</td>
+              <td class="amount">每年 <strong>200,000 元</strong></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>二、其他費用</h2>
+        
+        <div class="fee-item">
+          <h3>🍱 餐費</h3>
+          <p>依當學年與廠商議價之金額，按每學年實際課天數計算。</p>
+          <p class="note">分兩次連同學雜費於1月及7月前繳交</p>
+        </div>
+
+        <div class="fee-item">
+          <h3>📋 代收代辦費</h3>
+          <ul>
+            <li><strong>學生平安保險費：</strong>依每學年公開招標金額</li>
+            <li><strong>課程材料費：</strong>依任課教師之課程設計代收代購</li>
+            <li><strong>學生家長會費：</strong>每學年每戶 <strong>300 元</strong></li>
+          </ul>
+        </div>
+
+        <div class="fee-item">
+          <h3>🏠 開辦費</h3>
+          <p>每位新生或轉學生入學時繳交一次</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>三、繳費時間</h2>
+        <p>學雜費與餐費於每年 <strong>1月</strong> 及 <strong>7月</strong> 前繳納</p>
+        
+        <div class="installment">
+          <h3>💳 分期付款</h3>
+          <p>有特殊需求之家庭，可於開學後第五週內申請分期付款</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>四、轉學與退費辦法</h2>
+        
+        <div class="policy-item">
+          <h3>📤 轉學規定（第四條）</h3>
+          <ul>
+            <li>家長需提前 <strong>一個月</strong> 告知學校轉出意願</li>
+            <li>行政作業時間約 4 週，處理檔案轉移與相關表單</li>
+          </ul>
+        </div>
+
+        <div class="policy-item">
+          <h3>💰 退費標準（以20週學期為基準）</h3>
+          <table class="refund-table">
+            <tr>
+              <th>情況</th>
+              <th>退費方式</th>
+            </tr>
+            <tr>
+              <td>註冊前</td>
+              <td>全额退費</td>
+            </tr>
+            <tr>
+              <td>註冊後、開學前</td>
+              <td>學費及註冊費退還，扣除 <strong>5,000 元</strong> 行政作業費；午餐費全额退還</td>
+            </tr>
+            <tr>
+              <td>開學後</td>
+              <td>依學期剩餘週數比例退還學費</td>
+            </tr>
+            <tr>
+              <td>不予退費</td>
+              <td>課程材料費、家長會費、學生保險費（開學後）</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="policy-item">
+          <h3>🍱 高中部餐費</h3>
+          <p>高中生可自行選擇是否在校用餐，若自行帶便當可免繳午餐費</p>
+        </div>
+
+        <div class="policy-item">
+          <h3>🎓 畢業班費用（第八條）</h3>
+          <p>最後一學期（僅16週）免註冊費，學費依比例收取（16/20週），餐費依實際上課天數計算</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .info-card h2 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e0d4c8;
+  }
+
+  .fee-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .fee-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .fee-item h3 {
+    color: #228B22;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .amount {
+    font-size: 1.3rem;
+    color: #228B22;
+    font-weight: bold;
+  }
+
+  .note {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+  .fee-table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+  }
+
+  .fee-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .fee-table tr:last-child td { border-bottom: none; }
+
+  .fee-item ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .fee-item li {
+    padding: 0.5rem 0;
+    color: #666;
+  }
+
+  .installment {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+  }
+
+  .installment h3 { color: #2e7d32; margin-bottom: 0.5rem; }
+  .installment p { color: #555; margin: 0; }
+
+  .policy-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .policy-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .policy-item h3 { color: #228B22; font-size: 1.1rem; margin-bottom: 0.8rem; }
+
+  .policy-item ul { list-style: none; padding: 0; }
+  .policy-item li { padding: 0.4rem 0; color: #666; padding-left: 1.2rem; position: relative; }
+  .policy-item li::before { content: "•"; color: #228B22; position: absolute; left: 0; }
+
+  .refund-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+  }
+
+  .refund-table th, .refund-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border: 1px solid #e0d4c8;
+  }
+
+  .refund-table th { background: #FFF8DC; color: #8B4513; }
+  .refund-table td { color: #555; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

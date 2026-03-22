@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="活動集錦 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>活動集錦</h1>
+      <p>精彩活動紀錄</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">活動照片</h2>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <div class="photo-placeholder">📷</div>
+          <p>招生說明會</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">📷</div>
+          <p>課程體驗</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">📷</div>
+          <p>戶外教學</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">📷</div>
+          <p>節慶活動</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">📷</div>
+          <p>運動會</p>
+        </div>
+        <div class="photo-card">
+          <div class="photo-placeholder">📷</div>
+          <p>畢業典禮</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section video-section">
+    <div class="container">
+      <h2 class="section-title">影片專區</h2>
+      <div class="video-placeholder">
+        <span class="video-icon">🎬</span>
+        <p>影片陸續上架中...</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #8B4513;
+    margin-bottom: 2rem;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .photo-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .photo-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .photo-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, #FFF8DC, #f5deb3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .photo-card p {
+    padding: 1rem;
+    text-align: center;
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .video-section {
+    background: #f5deb3;
+  }
+
+  .video-placeholder {
+    background: white;
+    padding: 4rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+  }
+
+  .video-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .video-placeholder p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    background: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+</style>

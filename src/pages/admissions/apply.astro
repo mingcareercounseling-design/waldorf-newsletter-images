@@ -1,0 +1,232 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="入學申請 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>入學申請</h1>
+      <p>入學與轉學申請</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="flowchart">
+        <h2>🔄 轉學生申請流程</h2>
+        <ol>
+          <li><span class="step">預約參訪</span>或參加招生說明會</li>
+          <li><span class="step">填寫申請表</span>並提交相關資料</li>
+          <li><span class="step">師長觀察</span>了解孩子學習發展狀況</li>
+          <li><span class="step">試讀</span>體驗課程</li>
+          <li><span class="step">家長訪談</span>了解家庭理念</li>
+          <li><span class="step">錄取</span>繳交註冊費用</li>
+          <li><span class="step">試讀期評估</span>（學期第9-11週）</li>
+          <li><span class="step">第二次家長訪談</span></li>
+          <li><span class="step">結果</span>「正式就讀」或「輔導轉出」</li>
+        </ol>
+      </div>
+
+      <div class="notice">
+        <h3>📢 給家長的話</h3>
+        <p>光禾華德福尋找的是已經對於華德福教育有積極認識或正在學習人智學的家長。歡迎您是帶著對善、美、真的價值的認同而來，而不是僅止於休閒興趣的參觀。</p>
+        <p>我們優先錄取已經參與光禾社群活動的家庭。</p>
+      </div>
+
+      <div class="requirements">
+        <h3>📋 申請須知</h3>
+        
+        <div class="req-item">
+          <h4>申請方式</h4>
+          <p> Email：kuanghe.student@gmail.com<br>或郵寄紙本</p>
+        </div>
+
+        <div class="req-item">
+          <h4>訪問須知</h4>
+          <p>父母雙方與孩子都必須到場</p>
+        </div>
+
+        <div class="req-item">
+          <h4>目前招收年級</h4>
+          <p>國小一至七年級（七年級僅受理轉入八年級）</p>
+        </div>
+
+        <div class="req-item">
+          <h4>應繳文件</h4>
+          <ul>
+            <li>申請表（需貼正面脫帽近照）</li>
+            <li>孩子自由創作之繪畫作品（掃描或拍攝）</li>
+            <li>原就讀學校成績單或學習紀錄</li>
+          </ul>
+        </div>
+
+        <div class="req-item">
+          <h4>聯絡方式</h4>
+          <p>電話：07-7885128 分機 13（招生組）</p>
+        </div>
+      </div>
+
+      <div class="fees">
+        <h3>💰 訪問費用</h3>
+        <p class="note">111學年度起</p>
+        <table>
+          <tr>
+            <th>對象</th>
+            <th>費用</th>
+          </tr>
+          <tr>
+            <td>新生家庭</td>
+            <td>$1,200</td>
+          </tr>
+          <tr>
+            <td>舊生家庭（兄弟姐妹已就讀）</td>
+            <td>$1,000</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .flowchart {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .flowchart h2 {
+    color: #228B22;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .flowchart ol {
+    list-style: none;
+    padding: 0;
+    counter-reset: steps;
+  }
+
+  .flowchart li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: #666;
+    border-left: 3px solid #4caf50;
+    margin-left: 1rem;
+  }
+
+  .flowchart li::before {
+    counter-increment: steps;
+    content: counter(steps);
+    position: absolute;
+    left: -12px;
+    background: #228B22;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .step {
+    color: #228B22;
+    font-weight: bold;
+  }
+
+  .notice {
+    background: #e8f5e9;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .notice h3 { color: #2e7d32; margin-bottom: 1rem; }
+  .notice p { color: #555; line-height: 1.8; }
+
+  .requirements {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .requirements h3 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .req-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .req-item:last-child { border-bottom: none; }
+
+  .req-item h4 {
+    color: #228B22;
+    margin-bottom: 0.5rem;
+  }
+
+  .req-item p, .req-item li { color: #666; }
+  .req-item ul { padding-left: 1.2rem; }
+
+  .fees {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .fees h3 { color: #8B4513; font-size: 1.5rem; margin-bottom: 1rem; }
+  .fees .note { color: #888; font-size: 0.9rem; margin-bottom: 1rem; }
+
+  .fees table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .fees th, .fees td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .fees th { background: #f5f5f5; color: #8B4513; }
+  .fees td { color: #666; }
+  .fees tr:last-child td { border-bottom: none; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

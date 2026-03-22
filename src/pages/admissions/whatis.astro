@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="什麼是華德福教育 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>什麼是華德福教育</h1>
+      <p>源自德國的全人教育理念</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="content-block">
+        <h2>華德福教育的起源</h2>
+        <p>華德福教育（Waldorf Education）由奧地利哲學家魯道夫·史代納（Rudolf Steiner）於1919年在德國斯圖加特創辦。</p>
+        <p>這是一種強調「全人教育」的教育理念，認為教育應該同時滋養孩子的意志、情感與思考三大層面。</p>
+      </div>
+
+      <div class="content-block">
+        <h2>教育理念</h2>
+        <ul>
+          <li><strong>尊重孩子的發展階段</strong> - 根據不同年齡給予適合的教育</li>
+          <li><strong>注重創造力與想像力</strong> - 透過藝術、手工、音樂滋養心靈</li>
+          <li><strong>自然與環境教育</strong> - 讓孩子在自然中學習</li>
+          <li><strong>均衡的課程設計</strong> - 涵蓋學術、藝術、實作與運動</li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h2>光禾的實踐</h2>
+        <p>光禾華德福實驗學校致力於將華德福教育帶給台灣的孩子，營造一個充滿愛與自由的學習環境。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small { background: linear-gradient(135deg, #8B4513, #228B22); color: white; padding: 4rem 2rem; text-align: center; }
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .content-block { background: white; padding: 2rem; border-radius: 20px; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(139,69,19,0.1); }
+  .content-block h2 { color: #8B4513; font-size: 1.5rem; margin-bottom: 1rem; }
+  .content-block p { color: #666; line-height: 1.8; margin-bottom: 1rem; }
+  .content-block ul { padding-left: 1.5rem; }
+  .content-block li { color: #555; padding: 0.5rem 0; }
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

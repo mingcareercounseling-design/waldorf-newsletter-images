@@ -1,0 +1,229 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="本校學費 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>本校學費</h1>
+      <p>113學年度收費標準</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="note">
+        <p>📋 製表日期：113/8/28</p>
+      </div>
+
+      <div class="tuition-card">
+        <h2>🌱 國小部</h2>
+        <div class="semester">
+          <h3>秋、冬季學期（8月-隔年1月）</h3>
+          <p class="amount">$85,000</p>
+          <ul>
+            <li>開辦費 $5,000</li>
+            <li>註冊費 $15,000</li>
+            <li>學費 $65,000</li>
+          </ul>
+        </div>
+        <div class="semester">
+          <h3>春、夏季學期（2月-7月）</h3>
+          <p class="amount">$65,000</p>
+          <ul>
+            <li>學費 $65,000</li>
+          </ul>
+        </div>
+        <div class="total">
+          <span>全學年合計：</span>
+          <strong>$150,000</strong>
+        </div>
+      </div>
+
+      <div class="tuition-card">
+        <h2>📚 國中部</h2>
+        <div class="semester">
+          <h3>秋、冬季學期（8月-隔年1月）</h3>
+          <p class="amount">$95,000</p>
+          <ul>
+            <li>開辦費 $5,000</li>
+            <li>註冊費 $15,000</li>
+            <li>學費 $75,000</li>
+          </ul>
+        </div>
+        <div class="semester">
+          <h3>春、夏季學期（2月-7月）</h3>
+          <p class="amount">$75,000</p>
+          <ul>
+            <li>學費 $75,000</li>
+          </ul>
+        </div>
+        <div class="total">
+          <span>全學年合計：</span>
+          <strong>$170,000</strong>
+        </div>
+      </div>
+
+      <div class="tuition-card highlight">
+        <h2>🌟 高中部</h2>
+        <div class="semester">
+          <h3>秋、冬季學期（8月-隔年1月）</h3>
+          <p class="amount">$105,000</p>
+          <ul>
+            <li>開辦費 $5,000</li>
+            <li>學費 $100,000</li>
+          </ul>
+        </div>
+        <div class="semester">
+          <h3>春、夏季學期（2月-7月）</h3>
+          <p class="amount">$100,000</p>
+          <ul>
+            <li>學費 $100,000</li>
+          </ul>
+        </div>
+        <div class="total">
+          <span>全學年合計：</span>
+          <strong>$205,000</strong>
+        </div>
+        <div class="subsidy">
+          <p>📌 高中生若戶籍在高雄市，每學期可申請教育局「免學費補助」<strong>$25,400</strong></p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <h3>⚠️ 注意事項</h3>
+        <ul>
+          <li><strong>開辦費：</strong>僅限新入學新生繳交一次</li>
+          <li><strong>學用品費：</strong>學生個人學用品費、戶外探索課程費用另計</li>
+          <li><strong>代收代辦費：</strong>學生平安保險費、午餐費（依實際天數收取）</li>
+          <li><strong>協會會費：</strong>新生入會費 $200，年費 $1,500</li>
+          <li><strong>家長會費：</strong>每家庭每學年度 $300</li>
+          <li><strong>國小部額外：</strong>家長會課後安親費用每人每學年 $2,500</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .note { text-align: center; color: #888; margin-bottom: 2rem; }
+
+  .tuition-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .tuition-card h2 {
+    color: #8B4513;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .tuition-card.highlight {
+    background: linear-gradient(135deg, #fff8f0, #fff);
+    border: 2px solid #228B22;
+  }
+
+  .semester {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .semester:last-of-type { border-bottom: none; }
+
+  .semester h3 {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .amount {
+    font-size: 2rem;
+    color: #228B22;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .tuition-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tuition-card li {
+    color: #666;
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .tuition-card li::before {
+    content: "•";
+    color: #228B22;
+    position: absolute;
+    left: 0;
+  }
+
+  .total {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .total span { color: #666; }
+  .total strong { color: #8B4513; font-size: 1.5rem; }
+
+  .subsidy {
+    background: #e8f5e9;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .subsidy p { margin: 0; color: #2e7d32; }
+
+  .notice {
+    background: #fff3e0;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+  }
+
+  .notice h3 { color: #e65100; margin-bottom: 1rem; }
+  .notice ul { list-style: none; padding: 0; }
+  .notice li { color: #666; padding: 0.5rem 0; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

@@ -1,0 +1,57 @@
+# Admin Configuration
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  # 訊息公告
+  - name: "news"
+    label: "訊息公告"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "發布日期", name: "date", widget: "datetime"}
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "內容", name: "body", widget: "markdown"}
+
+  # 行事曆
+  - name: "calendar"
+    label: "行事曆"
+    folder: "content/calendar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "日期", name: "date", widget: "string"}
+      - {label: "說明", name: "description", widget: "text"}
+
+  # 招生簡章
+  - name: "admissions"
+    label: "招生資訊"
+    folder: "content/admissions"
+    create: true
+    fields:
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "內容", name: "body", widget: "markdown"}
+      - {label: "附件", name: "file", widget: "file"}
+
+  # 頁面設定
+  - name: "pages"
+    label: "頁面內容"
+    files:
+      - label: "首頁"
+        name: "home"
+        file: "content/pages/home.md"
+        fields:
+          - {label: "標題", name: "title", widget: "string"}
+          - {label: "副標題", name: "subtitle", widget: "string"}
+      
+      - label: "學費"
+        name: "tuition"
+        file: "content/pages/tuition.md"
+        fields:
+          - {label: "學費資訊", name: "body", widget: "markdown"}

@@ -1,0 +1,94 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | 光禾華德福實驗學校</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Liu+Jian+Mao+Cao&text=%E4%B8%AD%E6%96%87%E5%AD%97%E7%89%A9&display=swap" rel="stylesheet">
+    <style>
+      /* 加強字體載入 */
+      body {
+        font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', -apple-system, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #8B4513;
+    --color-secondary: #228B22;
+    --color-accent: #FF8C00;
+    --color-warm: #FFD700;
+    --color-cream: #FFF8DC;
+    --color-soft-pink: #FFE4E1;
+    --color-sky: #87CEEB;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: linear-gradient(135deg, #fdf6e3 0%, #fff8dc 50%, #fef3c7 100%);
+    color: #333;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, .handwritten {
+    font-family: 'Liu Jian Mao Cao', 'Zhi Mang Xing', 'KaiTi', cursive;
+    font-weight: normal;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139, 69, 19, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+  }
+</style>

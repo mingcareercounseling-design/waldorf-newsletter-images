@@ -1,0 +1,176 @@
+---
+const navItems = [
+  { name: '首頁', href: '/' },
+  { name: '關於光禾', href: '/about', submenu: [
+    { name: '宗旨與理念', href: '/about/philosophy' },
+    { name: '歷史沿革', href: '/about/history' },
+    { name: '經營團隊', href: '/about/team' },
+    { name: '社團法人', href: '/about/association' },
+    { name: '教職團隊', href: '/about/teachers' },
+    { name: '家長會', href: '/about/parents' },
+    { name: '願景', href: '/about/vision' },
+    { name: '華德福名錄', href: '/about/waldorf-list' },
+  ]},
+  { name: '招生資訊', href: '/admissions', submenu: [
+    { name: '預約參訪', href: '/admissions/visit' },
+    { name: '招生簡章', href: '/admissions/guide' },
+    { name: '招生Q&A', href: '/admissions/faq' },
+    { name: '招生說明會', href: '/admissions/seminar' },
+    { name: '本校學費', href: '/admissions/tuition' },
+    { name: '入學申請', href: '/admissions/apply' },
+    { name: '收退費辦法', href: '/admissions/refund' },
+    { name: '轉出流程', href: '/admissions/transfer-out' },
+    { name: '交通資訊', href: '/admissions/transportation' },
+  ]},
+  { name: '教學圖像', href: '/curriculum', submenu: [
+    { name: '什麼是華德福', href: '/curriculum/whatis' },
+    { name: '華德福QA大集合', href: '/curriculum/qa' },
+    { name: '各年段發展圖像', href: '/curriculum/development' },
+    { name: '小學部主副課程介紹', href: '/curriculum/elementary-courses' },
+    { name: '教學正常化', href: '/curriculum/normalization' },
+  ]},
+  { name: '活動集錦', href: '/activities', submenu: [
+    { name: '四季慶典', href: '/activities/seasons' },
+    { name: '發表暨成果展', href: '/activities/achievement' },
+    { name: '心得分享', href: '/activities/experience' },
+    { name: '講座研習', href: '/activities/seminars' },
+    { name: '花絮剪影', href: '/activities/highlights' },
+  ]},
+  { name: '光禾通訊', href: '/newsletter' },
+  { name: '行事曆', href: '/calendar' },
+  { name: '財務公開', href: '/finance' },
+  { name: '支持光禾', href: '/support' },
+  { name: '聯絡我們', href: '/contact' },
+];
+---
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">
+      <img src="/images/brand/logo2.png" alt="光禾華德福" class="logo-img" />
+    </a>
+    
+    <nav class="nav">
+      {navItems.map(item => (
+        <div class="nav-item">
+          <a href={item.href} class="nav-link">{item.name}</a>
+          {item.submenu && (
+            <div class="submenu">
+              {item.submenu.map(sub => (
+                <a href={sub.href} class="submenu-link">{sub.name}</a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(139, 69, 19, 0.1);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #8B4513;
+  }
+
+  .logo-img {
+    height: 60px;
+    width: auto;
+  }
+
+  .logo-icon {
+    font-size: 2rem;
+  }
+
+  .logo-text {
+    font-family: 'Liu Jian Mao Cao', 'Zhi Mang Xing', cursive;
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .nav-link:hover {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+  }
+
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(139, 69, 19, 0.2);
+    min-width: 180px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .nav-item:hover .submenu {
+    display: block;
+  }
+
+  .submenu-link {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .submenu-link:hover {
+    background: #FFF8DC;
+    color: #8B4513;
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .nav {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

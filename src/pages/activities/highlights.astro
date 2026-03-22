@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="花絮剪影 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>花絮剪影</h1>
+      <p>活動中的精彩瞬間</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="intro">記錄光禾生活中的點點滴滴，精采片段都在這裡。</p>
+      
+      <div class="content-block">
+        <h2>活動紀錄｜G9 榕樹班導師 陳宏曜</h2>
+        <p>榕樹班秋冬學季的自主學習課程，在全中學部齊聚一堂的發表會中進入高潮。過程中，高中部學長姐犀利的提問，學弟妹帶著好奇的回應。尷尬是台上空氣的味道，這些青少年正在學習與之共處，有人找了感情好的同儕一起上台，拉攏同伴取暖是很有用的策略；有人獨自上台，搬出勇氣面對著一片靜默的氣氛與台下那一對對水汪汪的大眼睛；男孩子們尷尬極了，雖然平常時候調皮搗蛋的，在台上每個人都板起臉孔一本正經，同時轉著腦袋瓜，試著說出屬於自己的動人故事。</p>
+        <p>榕樹班的青少年雖然經歷了八年級的專題發表多數臺風更甚以往，但這樣的場面對自己來說或多或少仍有些感到緊張與不自在；如何讓自己克服上台的壓力，對九年級的青少年來說是一個重要的課題，發表會成了不可多得的學習機會。對青少年而言，這是一個深刻且真實的挑戰，這個年紀的孩子很容易對外界評價放大檢視，稍不留意就失去了肯定自己的力量，而現在的他們已然是超越了過往的自己，並無時無刻地積累以等待成就未來的自己。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .intro { text-align: center; color: #666; margin-bottom: 2rem; }
+
+  .content-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .content-block h2 {
+    color: #8B4513;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-block p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

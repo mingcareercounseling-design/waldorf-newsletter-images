@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="交通資訊 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>交通資訊</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>自行開車到校</h2>
+        <p>請依導航系統輸入地址抵達本校（位於興仁國中校區內）</p>
+      </div>
+
+      <div class="content-block">
+        <h2>搭乘大眾運輸交通工具</h2>
+        <p>可搭乘捷運或輕軌至附近站點，再步行或轉乘接駁車</p>
+      </div>
+
+      <div class="content-block">
+        <h2>🚇 捷運/輕軌 + 步行/腳踏車</h2>
+        <ul>
+          <li><strong>捷運 + U-Bike 腳踏車</strong>：約 5 分鐘</li>
+          <li><strong>捷運 + 步行</strong>：約 10 分鐘</li>
+        </ul>
+        <div class="stations">
+          <div class="station">
+            <span class="icon">🚇</span>
+            <span>捷運車站 - 前鎮高中站 (Cianjhen Senior High School)</span>
+          </div>
+          <div class="station">
+            <span class="icon">🚊</span>
+            <span>輕軌車站 - 凱旋中華站 (Kaisyuan Jhonghua)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block map-block">
+        <h2>🗺️ 地圖位置</h2>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.532792763464!2d120.307!3d22.583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1758e76c%3A0xYOUR_CODE!2s光禾華德福實驗學校!5e0!3m2!1szh-TW!2stw!4v1234567890"
+          width="100%" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="content-block contact-block">
+        <h2>📍 光禾華德福實驗學校</h2>
+        <div class="contact-info">
+          <p><strong>地址：</strong>806037 高雄市前鎮區德昌路345號（興仁國中 理學大樓）</p>
+          <p><strong>電話：</strong>07-7885128</p>
+          <p><strong>傳真：</strong>07-7885131（請先電話聯繫）</p>
+          <p><strong>Email：</strong>waldorf.kh@gmail.com</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .content-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .content-block h2 {
+    color: #8B4513;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-block p, .content-block li {
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .content-block ul {
+    padding-left: 1.5rem;
+  }
+
+  .stations {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  .station {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    color: #555;
+  }
+
+  .station .icon { font-size: 1.2rem; }
+
+  .map-block iframe {
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  .contact-block {
+    background: linear-gradient(135deg, #fff8f0, #fff);
+    border: 2px solid #8B4513;
+  }
+
+  .contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

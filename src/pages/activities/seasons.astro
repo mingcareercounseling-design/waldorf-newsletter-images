@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="四季慶典 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>四季慶典</h1>
+      <p>光禾的節慶活動</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="intro">華德福教育重視節慶的慶祝，讓孩子在季節變換中感受自然與生命的節奏。</p>
+      
+      <div class="content-block">
+        <h2>秋慶｜淨灘行動</h2>
+        <p><strong>秋慶分享｜G7海洋班導師 陳嘉慧</strong></p>
+        <p>今年秋天，我們將「感恩」化為守護大地的行動。孩子們提起桶子，沿著海岸一步步走在沙灘上，彎下身撿起瓶蓋、塑膠袋與海浪遺落的碎片。桶子中滿滿的「收獲」，裝滿孩子真摯的心意。每一個專注的眼神、踏實的步伐，彷彿在告訴大海：「謝謝您長久以來的滋養，今天換我們來守護您。」</p>
+        <p><strong>分享｜G7海洋班/G5銀杏班家長 劉曜銓(鎧銘/詠杰爸爸)</strong></p>
+        <p>10月3日，正值秋季慶典，我們光禾全校的師生一起走向大海，來到旗津，參與一場與自然同在的「淨灘行動」。在陽光與海風中，孩子們彎下腰，拾起一袋袋垃圾，不只是清理沙灘，更是清理我們心中的責任感與環境意識。華德福教育不僅在教室裡，更在大地、在社群、在與自然的連結裡。這一天，我們用行動向地球獻上感恩，也為秋天的豐收季節，種下美好的祝福。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .intro { text-align: center; color: #666; margin-bottom: 2rem; }
+
+  .content-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .content-block h2 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-block p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

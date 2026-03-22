@@ -1,0 +1,268 @@
+---
+// 管理後台 - 所見即所得編輯器
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="編輯頁面 | 光禾華德福">
+  
+  <div class="editor-layout">
+    <!-- 工具欄 -->
+    <header class="editor-toolbar">
+      <div class="toolbar-left">
+        <a href="/admin" class="back-btn">← 後台</a>
+        <span class="page-title" id="pageTitle">載入中...</span>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn-secondary" onclick="addElement('h2')">➕ 標題</button>
+        <button class="btn btn-secondary" onclick="addElement('p')">➕ 段落</button>
+        <button class="btn btn-secondary" onclick="addElement('ul')">➕ 列表</button>
+        <button class="btn btn-secondary" onclick="addElement('table')">➕ 表格</button>
+        <button class="btn btn-save" onclick="savePage()">💾 儲存變更</button>
+      </div>
+    </header>
+
+    <!-- 編輯區域 -->
+    <div class="editor-container">
+      <div class="editor-wrapper" id="editorArea" contenteditable="true">
+      </div>
+    </div>
+
+    <!-- 儲存成功提示 -->
+    <div class="toast" id="toast">✅ 儲存成功！</div>
+  </div>
+
+  <script define:vars={{ pages: {} }}>
+    // 頁面配置
+    const pagesData = {
+      home: {
+        title: '首頁',
+        content: `<h1>歡迎來到光禾華德福實驗學校</h1>
+<p>在充滿愛與自由的環境中，陪孩子走一段善、美、真的學習旅程。</p>
+<h2>關於我們</h2>
+<p>光禾華德福實驗學校成立於民國101年，致力於實踐全人教育，讓孩子在溫暖的環境中成長。</p>
+<h2>教育理念</h2>
+<p>我們相信每個孩子都是獨特的個體，透過均衡的意志、情感與思考發展，成為完整的人。</p>`
+      },
+      teachers: {
+        title: '師資團隊',
+        content: `<h2>教學核心小組</h2>
+<ul>
+<li>校長：許慧玲</li>
+<li>小學部教師會主席：林季瑩</li>
+<li>中學部教師會主席：葉友竹</li>
+</ul>
+<h2>行政團隊</h2>
+<ul>
+<li>學務：潘韻如</li>
+<li>總務：侯慕龍</li>
+<li>教務：姜宜辰</li>
+<li>校護：郭佳蕙</li>
+</ul>`
+      },
+      tuition: {
+        title: '本校學費',
+        content: `<h2>113學年度收費標準</h2>
+<table border="1" cellpadding="8">
+<tr><th>部別</th><th>全學年合計</th></tr>
+<tr><td>國小部</td><td>$150,000</td></tr>
+<tr><td>國中部</td><td>$170,000</td></tr>
+<tr><td>高中部</td><td>$205,000</td></tr>
+</table>`
+      },
+      calendar: {
+        title: '行事曆',
+        content: `<h2>114學年度春學季</h2>
+<ul>
+<li>3/14 - 114春季聯合班親會</li>
+<li>3/21 - 115學年度春季招生說明會</li>
+<li>3/28 - 114春季慶典暨校慶</li>
+<li>4/3 - 清明節連假</li>
+</ul>`
+      },
+      contact: {
+        title: '聯絡我們',
+        content: `<h2>聯絡資訊</h2>
+<p><strong>地址：</strong>806037 高雄市前鎮區德昌路345號（興仁國中 理學大樓）</p>
+<p><strong>電話：</strong>07-7885128</p>
+<p><strong>Email：</strong>waldorf.kh@gmail.com</p>
+<p><strong>上班時間：</strong>週一至週五 09:00-17:00</p>`
+      },
+      finance: {
+        title: '財務公開',
+        content: `<h2>114學年度預算書</h2>
+<p>依規定公開學校財務資訊</p>
+<h2>113學年度決算書</h2>
+<p>點擊下載各項財務報表</p>`
+      },
+      activities: {
+        title: '活動集錦',
+        content: `<h2>花絮剪影</h2>
+<p>記錄校園生活的點點滴滴</p>
+<h2>心得分享</h2>
+<p>師生與家長的心得回饋</p>
+<h2>發表暨成果展</h2>
+<p>戲劇演出、畢業專題等</p>`
+      },
+      curriculum: {
+        title: '課程資訊',
+        content: `<h2>小學部課程</h2>
+<p>主課程涵蓋語文、數學、自然與社會</p>
+<h2>教學正常化</h2>
+<p>依據教育部規定，落實正常教學</p>`
+      },
+      about: {
+        title: '關於我們',
+        content: `<h2>光禾的願景</h2>
+<p>成為充滿愛與自由的學習園地</p>
+<h2>光禾家長會</h2>
+<p>歡迎加入光禾大家庭</p>`
+      },
+      visit: {
+        title: '預約參訪',
+        content: `<h2>預約參觀</h2>
+<p>我們誠摯邀請您與孩子一同走進光禾，體驗充滿生命力與節奏感的學習環境。</p>
+<p>請填寫表單，我們將有專人與您聯繫。</p>`
+      },
+      apply: {
+        title: '入學申請',
+        content: `<h2>轉學生申請流程</h2>
+<ol>
+<li>預約參訪或參加招生說明會</li>
+<li>填寫申請表並提交資料</li>
+<li>師長觀察</li>
+<li>試讀</li>
+<li>家長訪談</li>
+<li>錄取並繳費</li>
+</ol>`
+      },
+      refund: {
+        title: '收退費辦法',
+        content: `<h2>主要費用</h2>
+<ul>
+<li>註冊費：15,000元（每年）</li>
+<li>學雜費：依部別而異</li>
+</ul>
+<h2>繳費時間</h2>
+<p>學雜費於每年1月及7月前繳納</p>`
+      },
+      transportation: {
+        title: '交通資訊',
+        content: `<h2>自行開車</h2>
+<p>請依導航系統輸入地址抵達本校</p>
+<h2>大眾運輸</h2>
+<ul>
+<li>捷運前鎮高中站</li>
+<li>輕軌凱旋中華站</li>
+</ul>`
+      },
+      guide: {
+        title: '招生簡章',
+        content: `<h2>招生年級與名額</h2>
+<table border="1" cellpadding="8">
+<tr><th>年級</th><th>名額</th></tr>
+<tr><td>國小一年級</td><td>20名</td></tr>
+<tr><td>國中一年級</td><td>15名</td></tr>
+<tr><td>高中一年級</td><td>20名</td></tr>
+</table>`
+      },
+      news: {
+        title: '訊息公告',
+        content: `<h2>最新公告</h2>
+<p>敬請期待...</p>`
+      },
+      'transfer-out': {
+        title: '轉出流程',
+        content: `<h2>轉出流程</h2>
+<ol>
+<li>告知導師與師長座談</li>
+<li>於轉出前一個月申請</li>
+<li>繳回相關表單</li>
+<li>行政作業</li>
+<li>費用結算</li>
+<li>領取轉學證明書</li>
+</ol>`
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageKey = urlParams.get('page') || 'home';
+    const currentPage = pagesData[pageKey] || pagesData.home;
+
+    // 初始化
+    document.getElementById('pageTitle').textContent = '✏️ ' + currentPage.title;
+    document.getElementById('editorArea').innerHTML = currentPage.content;
+
+    // 新增元素
+    function addElement(type) {
+      const editor = document.getElementById('editorArea');
+      let newEl = '';
+      
+      switch(type) {
+        case 'h2':
+          newEl = '<h2>新標題</h2>';
+          break;
+        case 'p':
+          newEl = '<p>新段落內容...</p>';
+          break;
+        case 'ul':
+          newEl = '<ul><li>項目一</li><li>項目二</li><li>項目三</li></ul>';
+          break;
+        case 'table':
+          newEl = '<table border="1" cellpadding="8"><tr><th>標題</th><th>內容</th></tr><tr><td>項目一</td><td>說明</td></tr></table>';
+          break;
+      }
+      
+      editor.focus();
+      document.execCommand('insertHTML', false, newEl);
+    }
+
+    // 儲存
+    function savePage() {
+      const content = document.getElementById('editorArea').innerHTML;
+      localStorage.setItem('page_' + pageKey, content);
+      
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // 離開時提示未儲存
+    window.onbeforeunload = function() {
+      return '您有未儲存的變更，確定要離開嗎？';
+    };
+  </script>
+
+</Layout>
+
+<style is:global>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans TC', -apple-system, sans-serif; background: #f5f5f5; }
+</style>
+
+<style>
+  .editor-layout { min-height: 100vh; background: #f5f5f5; }
+  .editor-toolbar { background: white; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 1rem; }
+  .toolbar-left { display: flex; align-items: center; gap: 1rem; }
+  .back-btn { color: #666; text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; background: #f0f0f0; font-size: 0.9rem; }
+  .back-btn:hover { background: #e0e0e0; }
+  .page-title { font-size: 1.1rem; color: #333; font-weight: bold; }
+  .toolbar-right { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .btn { padding: 0.6rem 1rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; font-family: inherit; }
+  .btn:hover { transform: scale(1.05); }
+  .btn-secondary { background: #e8f5e9; color: #2e7d32; }
+  .btn-secondary:hover { background: #c8e6c9; }
+  .btn-save { background: linear-gradient(135deg, #228B22, #8B4513); color: white; font-weight: bold; }
+  .editor-container { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  .editor-wrapper { background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 5px 30px rgba(0,0,0,0.1); min-height: 500px; line-height: 1.8; outline: none; }
+  .editor-wrapper:focus { box-shadow: 0 5px 30px rgba(34,139,34,0.2); }
+  .editor-wrapper h1, .editor-wrapper h2 { color: #8B4513; margin: 1.5rem 0 1rem; }
+  .editor-wrapper h3 { color: #228B22; margin: 1.2rem 0 0.8rem; }
+  .editor-wrapper p { color: #555; margin-bottom: 1rem; }
+  .editor-wrapper ul, .editor-wrapper ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .editor-wrapper li { color: #555; padding: 0.3rem 0; }
+  .editor-wrapper table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  .editor-wrapper td, .editor-wrapper th { padding: 0.8rem; border: 1px solid #ddd; }
+  .editor-wrapper th { background: #f5f5f5; color: #8B4513; }
+  .toast { position: fixed; bottom: 2rem; right: 2rem; background: #228B22; color: white; padding: 1rem 2rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s; font-weight: bold; }
+  .toast.show { opacity: 1; }
+</style>
