@@ -2,22 +2,21 @@
 const navItems = [
   { name: '首頁', href: '/' },
   { name: '關於光禾', href: '/about', submenu: [
-    { name: '宗旨與理念', href: '/about/philosophy' },
-    { name: '歷史沿革', href: '/about/history' },
+    { name: '願景', href: '/about/vision' },
+    { name: '成長故事', href: '/about/history' },
     { name: '經營團隊', href: '/about/team' },
     { name: '社團法人', href: '/about/association' },
     { name: '教職團隊', href: '/about/teachers' },
     { name: '家長會', href: '/about/parents' },
-    { name: '願景', href: '/about/vision' },
     { name: '華德福名錄', href: '/about/waldorf-list' },
   ]},
   { name: '招生資訊', href: '/admissions', submenu: [
     { name: '預約參訪', href: '/admissions/visit' },
+    { name: '入學申請', href: '/admissions/apply' },
     { name: '招生簡章', href: '/admissions/guide' },
     { name: '招生Q&A', href: '/admissions/faq' },
     { name: '招生說明會', href: '/admissions/seminar' },
     { name: '本校學費', href: '/admissions/tuition' },
-    { name: '入學申請', href: '/admissions/apply' },
     { name: '收退費辦法', href: '/admissions/refund' },
     { name: '轉出流程', href: '/admissions/transfer-out' },
     { name: '交通資訊', href: '/admissions/transportation' },
@@ -29,7 +28,7 @@ const navItems = [
     { name: '小學部主副課程介紹', href: '/curriculum/elementary-courses' },
     { name: '教學正常化', href: '/curriculum/normalization' },
   ]},
-  { name: '活動集錦', href: '/activities', submenu: [
+  { name: '活動集錦', submenu: [
     { name: '四季慶典', href: '/activities/seasons' },
     { name: '發表暨成果展', href: '/activities/achievement' },
     { name: '心得分享', href: '/activities/experience' },
@@ -49,6 +48,7 @@ const navItems = [
     <a href="/" class="logo">
       <img src="/images/brand/logo2.png" alt="光禾華德福" class="logo-img" />
     </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
     
     <nav class="nav">
       {navItems.map(item => (
@@ -131,6 +131,21 @@ const navItems = [
     background: linear-gradient(135deg, #8B4513, #228B22);
     color: white;
   }
+  
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  @media (min-width: 1025px) {
+    .nav-toggle {
+      display: none;
+    }
+  }
 
   .submenu {
     display: none;
@@ -164,13 +179,32 @@ const navItems = [
 
   @media (max-width: 1024px) {
     .container {
-      flex-direction: column;
-      gap: 1rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
     
     .nav {
-      flex-wrap: wrap;
-      justify-content: center;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    
+    .nav.open { display: flex; flex-direction: column; }
+    
+    .nav-toggle {
+      display: block !important;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      background: none;
     }
   }
 </style>

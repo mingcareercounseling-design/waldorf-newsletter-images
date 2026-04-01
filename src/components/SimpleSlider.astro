@@ -1,0 +1,181 @@
+---
+interface Props {
+  imageUrls: string[];
+  title?: string;
+}
+
+const { imageUrls, title = "電子書" } = Astro.props;
+---
+
+<div class="slider-container">
+  <div class="slider-header">
+    <h3>{title}</h3>
+    <div class="slider-controls">
+      <button id="prev-btn" class="ctrl-btn">◀ 上一張</button>
+      <span id="page-info">
+        <span id="current-page">1</span> / <span id="total-pages">{imageUrls.length}</span>
+      </span>
+      <button id="next-btn" class="ctrl-btn">下一張 ▶</button>
+      <button id="fullscreen-btn" class="ctrl-btn">⛶ 全螢幕</button>
+    </div>
+  </div>
+  
+  <div class="slider-viewport" id="slider-viewport">
+    <img id="current-image" src={imageUrls[0]} alt="Page 1" />
+  </div>
+</div>
+
+<script is:inline define:vars={{ imageUrls }}>
+  let currentPage = 0;
+  
+  const img = document.getElementById('current-image');
+  const viewport = document.getElementById('slider-viewport');
+  
+  function updateDisplay() {
+    img.src = imageUrls[currentPage];
+    img.alt = `Page ${currentPage + 1}`;
+    document.getElementById('current-page').textContent = (currentPage + 1).toString();
+    document.getElementById('prev-btn').disabled = currentPage === 0;
+    document.getElementById('next-btn').disabled = currentPage >= imageUrls.length - 1;
+    
+    // Preload next image
+    if (currentPage < imageUrls.length - 1) {
+      const preloadImg = new Image();
+      preloadImg.src = imageUrls[currentPage + 1];
+    }
+  }
+  
+  function nextPage() {
+    if (currentPage < imageUrls.length - 1) {
+      currentPage++;
+      updateDisplay();
+    }
+  }
+  
+  function prevPage() {
+    if (currentPage > 0) {
+      currentPage--;
+      updateDisplay();
+    }
+  }
+  
+  // Fullscreen
+  document.getElementById('fullscreen-btn').addEventListener('click', function() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      viewport.requestFullscreen();
+    }
+  });
+
+  document.getElementById('next-btn').addEventListener('click', nextPage);
+  document.getElementById('prev-btn').addEventListener('click', prevPage);
+  
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextPage();
+    if (e.key === 'ArrowLeft') prevPage();
+  });
+  
+  // Touch swipe
+  let touchStartX = 0;
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  
+  viewport.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextPage();
+      else prevPage();
+    }
+  }, { passive: true });
+  
+  updateDisplay();
+</script>
+
+<style>
+  .slider-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #f5f5f5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .slider-header {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .slider-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .ctrl-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+
+  .ctrl-btn:hover:not(:disabled) { background: rgba(255,255,255,0.3); }
+  .ctrl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  #page-info {
+    font-weight: bold;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .slider-viewport {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    min-height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .slider-viewport img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+    background: white;
+  }
+
+  @media (max-width: 600px) {
+    .slider-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    .slider-viewport {
+      min-height: 300px;
+      padding: 10px;
+    }
+    .slider-viewport img {
+      max-height: 50vh;
+    }
+  }
+</style>

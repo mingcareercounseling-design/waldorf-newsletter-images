@@ -1,0 +1,65 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  # 師資團隊
+  - name: "teachers"
+    label: "師資團隊"
+    folder: "src/content/teachers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "姓名", name: "name", widget: "string"}
+      - {label: "職位", name: "title", widget: "string"}
+      - {label: "介紹", name: "bio", widget: "text"}
+      - {label: "照片", name: "image", widget: "image"}
+
+  # 最新消息
+  - name: "news"
+    label: "最新消息"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "發布日期", name: "date", widget: "datetime"}
+      - {label: "內容", name: "body", widget: "markdown"}
+
+  # 活動集錦
+  - name: "activities"
+    label: "活動集錦"
+    folder: "src/content/activities"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "活動名稱", name: "title", widget: "string"}
+      - {label: "日期", name: "date", widget: "datetime"}
+      - {label: "分類", name: "category", widget: "select", options: ["四季慶典", "發表暨成果展", "心得分享", "講座研習", "花絮剪影"]}
+      - {label: "內容", name: "body", widget: "markdown"}
+      - {label: "照片", name: "image", widget: "image"}
+
+  # 招生資訊
+  - name: "admissions"
+    label: "招生資訊"
+    folder: "src/content/admissions"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "內容", name: "body", widget: "markdown"}
+
+  # 光禾通訊
+  - name: "newsletters"
+    label: "光禾通訊"
+    folder: "src/content/newsletters"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "期數", name: "issue", widget: "string"}
+      - {label: "標題", name: "title", widget: "string"}
+      - {label: "內容", name: "body", widget: "markdown"}
+      - {label: "附件", name: "attachment", widget: "file"}

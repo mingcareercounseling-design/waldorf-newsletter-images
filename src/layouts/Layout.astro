@@ -17,9 +17,32 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Liu+Jian+Mao+Cao&text=%E4%B8%AD%E6%96%87%E5%AD%97%E7%89%A9&display=swap" rel="stylesheet">
     <style>
-      /* 加強字體載入 */
+      /* 字體設定 */
       body {
         font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      
+      /* 防止水平溢出 */
+      html, body {
+        overflow-x: hidden;
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+      }
+      
+      /* 回應式標題 */
+      @media (max-width: 480px) {
+        h1 { font-size: 1.5rem; }
+        h2 { font-size: 1.2rem; }
+        h3 { font-size: 1rem; }
+      }
+      
+      /* 大標題回應式 */
+      @media (max-width: 480px) {
+        h1 { font-size: 1.6rem; }
+        h2 { font-size: 1.3rem; }
+        h3 { font-size: 1.1rem; }
       }
     </style>
   </head>

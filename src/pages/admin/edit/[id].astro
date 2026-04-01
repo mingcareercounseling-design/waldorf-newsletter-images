@@ -1,0 +1,230 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+
+const { id } = Astro.params;
+
+export function getStaticPaths() {
+  return [
+    { params: { id: 'index' } },
+    { params: { id: 'about' } },
+    { params: { id: 'admissions' } },
+    { params: { id: 'curriculum' } },
+    { params: { id: 'activities' } },
+    { params: { id: 'newsletter' } },
+    { params: { id: 'calendar' } },
+    { params: { id: 'finance' } },
+    { params: { id: 'support' } },
+    { params: { id: 'contact' } },
+  ];
+}
+
+// 模擬資料 - 之後會從資料庫讀取
+const pageData: Record<string, any> = {
+  'index': {
+    title: '首頁',
+    hero: { title: '光禾華德福實驗學校', subtitle: '讓孩子在自然中成長' },
+    sections: ['班級樹苗', '最新消息', '招生資訊']
+  },
+  'about': {
+    title: '關於光禾',
+    hero: { title: '關於我們', subtitle: '認識光禾華德福' },
+    sections: ['願景', '成長故事', '經營團隊', '教職團隊']
+  },
+  'admissions': {
+    title: '招生資訊',
+    hero: { title: '招生資訊', subtitle: '加入光禾大家庭' },
+    sections: ['預約參訪', '招生簡章', '本校學費']
+  },
+  'curriculum': {
+    title: '教學圖像',
+    hero: { title: '教學圖像', subtitle: '什麼是華德福教育' },
+    sections: ['什麼是華德福', '各年段發展']
+  },
+  'activities': {
+    title: '活動集錦',
+    hero: { title: '活動集錦', subtitle: '光禾的點點滴滴' },
+    sections: ['四季慶典', '發表成果展']
+  },
+  'newsletter': {
+    title: '光禾通訊',
+    hero: { title: '光禾通訊', subtitle: '每學季的紀錄' },
+    sections: ['最新期數']
+  },
+  'calendar': {
+    title: '行事曆',
+    hero: { title: '行事曆', subtitle: '光禾年度行事' }
+  },
+  'finance': {
+    title: '財務公開',
+    hero: { title: '財務公開', subtitle: '公開透明' }
+  },
+  'support': {
+    title: '支持光禾',
+    hero: { title: '支持光禾', subtitle: '感謝您的支持' }
+  },
+  'contact': {
+    title: '聯絡我們',
+    hero: { title: '聯絡我們', subtitle: '歡迎聯繫' }
+  }
+};
+
+const page = pageData[id] || { title: id, sections: [] };
+---
+
+<Layout title={`編輯 ${page.title}`}>
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>編輯：{page.title}</h1>
+      <a href="/admin" class="back-link">← 返回後台</a>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="editor-layout">
+        <!-- 預覽區 -->
+        <div class="preview-area">
+          <div class="preview-header">
+            <span>👀 預覽</span>
+            <a href={id === 'index' ? '/' : `/${id}`} target="_blank" class="preview-link">開新視窗</a>
+          </div>
+          <div class="preview-content">
+            <h2>{page.hero?.title}</h2>
+            <p>{page.hero?.subtitle}</p>
+          </div>
+        </div>
+        
+        <!-- 編輯區 -->
+        <div class="edit-area">
+          <h3>編輯內容區塊</h3>
+          
+          <div class="section-list">
+            {(page.sections || []).map((section: string, i: number) => (
+              <div class="section-item">
+                <span class="section-number">{i + 1}</span>
+                <span class="section-name">{section}</span>
+                <button class="edit-btn">✏️ 編輯</button>
+              </div>
+            ))}
+            
+            <button class="add-section-btn">➕ 新增區塊</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .back-link {
+    color: #8B4513;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  .editor-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .editor-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .preview-area {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .preview-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #f5f5f5;
+    font-weight: 500;
+  }
+  
+  .preview-link {
+    color: #228B22;
+    font-size: 0.9rem;
+  }
+  
+  .preview-content {
+    padding: 2rem;
+  }
+  
+  .preview-content h2 {
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+  }
+  
+  .preview-content p {
+    color: #666;
+  }
+  
+  .edit-area {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .edit-area h3 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .section-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-number {
+    width: 30px;
+    height: 30px;
+    background: #8B4513;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  
+  .section-name {
+    flex: 1;
+    font-weight: 500;
+  }
+  
+  .edit-btn {
+    padding: 0.4rem 0.8rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-section-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #e8f5e9;
+    border: 2px dashed #228B22;
+    border-radius: 8px;
+    color: #228B22;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+</style>

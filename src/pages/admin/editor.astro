@@ -1,0 +1,841 @@
+---
+// 視覺化網站編輯器
+const pages = [
+  { id: 'index', name: '首頁', url: '/', icon: '🏠' },
+  { id: 'about', name: '關於光禾', url: '/about', icon: '📖' },
+  { id: 'admissions', name: '招生資訊', url: '/admissions', icon: '📝' },
+  { id: 'curriculum', name: '教學圖像', url: '/curriculum', icon: '🎓' },
+  { id: 'activities', name: '活動集錦', url: '/activities', icon: '🎉' },
+  { id: 'newsletter', name: '光禾通訊', url: '/newsletter', icon: '📰' },
+  { id: 'calendar', name: '行事曆', url: '/calendar', icon: '📅' },
+  { id: 'finance', name: '財務公開', url: '/finance', icon: '💰' },
+  { id: 'support', name: '支持光禾', url: '/support', icon: '❤️' },
+  { id: 'contact', name: '聯絡我們', url: '/contact', icon: '📞' },
+];
+
+const tools = [
+  { id: 'text', name: '文字', icon: '📝', type: 'text', category: '基本元件' },
+  { id: 'heading', name: '標題', icon: '🔤', type: 'heading', category: '基本元件' },
+  { id: 'image', name: '圖片', icon: '🖼️', type: 'image', category: '基本元件' },
+  { id: 'button', name: '按鈕', icon: '🔘', type: 'button', category: '基本元件' },
+  { id: 'link', name: '連結', icon: '🔗', type: 'link', category: '基本元件' },
+  { id: 'spacer', name: '空白', icon: '↕️', type: 'spacer', category: '版面' },
+  { id: 'divider', name: '分隔線', icon: '➖', type: 'divider', category: '版面' },
+  { id: 'card', name: '卡片', icon: '🃏', type: 'card', category: '容器' },
+  { id: 'grid', name: '網格', icon: '🔲', type: 'grid', category: '容器' },
+  { id: 'video', name: '影片', icon: '🎬', type: 'video', category: '媒體' },
+  { id: 'gallery', name: '圖庫', icon: '📸', type: 'gallery', category: '媒體' },
+  { id: 'form', name: '表單', icon: '📋', type: 'form', category: '互動' },
+  { id: 'map', name: '地圖', icon: '🗺️', type: 'map', category: '互動' },
+];
+
+const currentPage = 'index';
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光禾華德福 - 網站編輯器</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #8B4513;
+      --secondary: #228B22;
+      --accent: #FF8C00;
+      --light: #f5f5f5;
+      --dark: #333;
+      --border: #ddd;
+      --sidebar-width: 280px;
+      --header-height: 60px;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+    
+    /* 編輯器頂部工具欄 */
+    .editor-header {
+      height: var(--header-height);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .page-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 15px;
+      border-radius: 8px;
+    }
+    
+    .page-selector select {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+    }
+    
+    .page-selector select option {
+      background: white;
+      color: var(--dark);
+    }
+    
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .header-btn {
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    
+    .btn-preview { background: rgba(255,255,255,0.2); color: white; }
+    .btn-save { background: var(--accent); color: white; }
+    .btn-publish { background: #4CAF50; color: white; }
+    
+    .header-btn:hover { transform: translateY(-2px); }
+    
+    /* 左側工具欄 */
+    .editor-sidebar {
+      position: fixed;
+      left: 0;
+      top: var(--header-height);
+      bottom: 0;
+      width: var(--sidebar-width);
+      background: white;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      z-index: 90;
+    }
+    
+    .sidebar-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .sidebar-tab {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--light);
+      border: none;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .sidebar-tab.active {
+      background: white;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+    
+    .tools-section {
+      margin-bottom: 20px;
+    }
+    
+    .tools-section-title {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    
+    .tool-item {
+      padding: 15px 10px;
+      background: var(--light);
+      border-radius: 10px;
+      text-align: center;
+      cursor: grab;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      user-select: none;
+    }
+    
+    .tool-item:hover {
+      background: #e8f5e9;
+      border-color: var(--secondary);
+      transform: scale(1.05);
+    }
+    
+    .tool-item.dragging {
+      opacity: 0.5;
+    }
+    
+    .tool-item:active { cursor: grabbing; }
+    
+    .tool-icon {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    
+    .tool-name {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    /* 頁面屬性面板 */
+    .properties-panel {
+      display: none;
+    }
+    
+    .properties-panel.active {
+      display: block;
+    }
+    
+    .prop-group {
+      margin-bottom: 20px;
+    }
+    
+    .prop-label {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .prop-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    
+    .prop-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    /* 預覽區域 */
+    .editor-main {
+      position: fixed;
+      left: var(--sidebar-width);
+      top: var(--header-height);
+      right: 0;
+      bottom: 0;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px;
+      overflow: auto;
+    }
+    
+    .preview-container {
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .preview-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* 拖曳放置區域 */
+    .drop-zone {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      background: rgba(34, 139, 34, 0.1);
+      border: 3px dashed var(--secondary);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .drop-zone.active {
+      display: flex;
+    }
+    
+    /* 元素編輯浮層 */
+    .element-controls {
+      position: absolute;
+      z-index: 1000;
+      display: none;
+      gap: 5px;
+    }
+    
+    .element-controls.visible {
+      display: flex;
+    }
+    
+    .element-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    
+    .btn-edit { background: #2196F3; color: white; }
+    .btn-move { background: #FF9800; color: white; }
+    .btn-delete { background: #f44336; color: white; }
+    
+    /* 右側屬性欄 */
+    .editor-properties {
+      position: fixed;
+      right: 0;
+      top: var(--header-height);
+      bottom: 0;
+      width: 300px;
+      background: white;
+      border-left: 1px solid var(--border);
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 90;
+      display: none;
+    }
+    
+    .editor-properties.open {
+      display: block;
+    }
+    
+    .prop-section {
+      margin-bottom: 25px;
+    }
+    
+    .prop-section-title {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    /* 儲存成功提示 */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 2000;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .toast.show { display: block; }
+    
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    /* 編輯中的元素樣式 */
+    .editing-element {
+      outline: 2px solid #2196F3 !important;
+      outline-offset: 2px;
+    }
+    
+    /* 已放置的元件樣式 */
+    .placed-element {
+      position: relative;
+      min-height: 50px;
+      border: 2px dashed transparent;
+      transition: all 0.2s;
+    }
+    
+    .placed-element:hover {
+      border-color: var(--accent);
+    }
+    
+    .placed-element .element-toolbar {
+      position: absolute;
+      top: -30px;
+      right: 0;
+      display: none;
+      gap: 5px;
+      background: #333;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    
+    .placed-element:hover .element-toolbar {
+      display: flex;
+    }
+    
+    /* 響應式 */
+    @media (max-width: 768px) {
+      .editor-sidebar { width: 60px; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .editor-main { left: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 頂部工具欄 -->
+  <header class="editor-header">
+    <div class="header-left">
+      <div class="logo">🎨 光禾網站編輯器</div>
+      <div class="page-selector">
+        <span>📄</span>
+        <select id="pageSelect">
+          {pages.map(page => (
+            <option value={page.url} selected={page.url === `/${currentPage}`}>{page.name}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn btn-preview" onclick="togglePreview()">👁️ 預覽</button>
+      <button class="header-btn btn-save" onclick="saveChanges()">💾 儲存</button>
+      <button class="header-btn btn-publish" onclick="publishSite()">🚀 發布</button>
+    </div>
+  </header>
+
+  <!-- 左側工具欄 -->
+  <aside class="editor-sidebar">
+    <div class="sidebar-tabs">
+      <button class="sidebar-tab active" onclick="switchTab('components')">元件</button>
+      <button class="sidebar-tab" onclick="switchTab('properties')">屬性</button>
+    </div>
+    
+    <div class="sidebar-content">
+      <!-- 元件面板 -->
+      <div id="components-panel" class="tools-panel">
+        {['基本元件', '版面', '容器', '媒體', '互動'].map(category => (
+          <div class="tools-section">
+            <div class="tools-section-title">{category}</div>
+            <div class="tools-grid">
+              {tools.filter(t => t.category === category).map(tool => (
+                <div class="tool-item" draggable="true" data-type={tool.type} data-icon={tool.icon} data-name={tool.name}>
+                  <div class="tool-icon">{tool.icon}</div>
+                  <div class="tool-name">{tool.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- 屬性面板 -->
+      <div id="properties-panel" class="properties-panel">
+        <div class="prop-group">
+          <label class="prop-label">選取的元素</label>
+          <p style="color: #999; font-size: 0.9rem;">點擊網頁中的元素來編輯</p>
+        </div>
+        <div class="prop-group">
+          <label class="prop-label">背景顏色</label>
+          <input type="color" class="prop-input" id="prop-bg" value="#ffffff">
+        </div>
+        <div class="prop-group">
+          <label class="prop-label">文字顏色</label>
+          <input type="color" class="prop-input" id="prop-color" value="#333333">
+        </div>
+        <div class="prop-group">
+          <label class="prop-label">字型大小</label>
+          <input type="range" class="prop-input" id="prop-size" min="12" max="72" value="16">
+        </div>
+        <div class="prop-group">
+          <label class="prop-label">對齊方式</label>
+          <select class="prop-input" id="prop-align">
+            <option value="left">靠左</option>
+            <option value="center">置中</option>
+            <option value="right">靠右</option>
+          </select>
+        </div>
+        <button class="header-btn btn-save" style="width: 100%; margin-top: 20px;" onclick="applyProperties()">✓ 套用變更</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 主編輯區域 -->
+  <main class="editor-main">
+    <div class="preview-container" id="previewContainer">
+      <div class="drop-zone" id="dropZone">放開以新增元件</div>
+      <iframe id="previewFrame" src="/"></iframe>
+    </div>
+  </main>
+
+  <!-- 右側屬性欄 -->
+  <aside class="editor-properties" id="propertiesSidebar">
+    <div class="prop-section">
+      <div class="prop-section-title">選取元素屬性</div>
+      <div class="prop-group">
+        <label class="prop-label">元素類型</label>
+        <input type="text" class="prop-input" id="elementType" readonly>
+      </div>
+      <div class="prop-group">
+        <label class="prop-label">文字內容</label>
+        <textarea class="prop-input" id="elementText" rows="3"></textarea>
+      </div>
+      <div class="prop-group">
+        <label class="prop-label">連結網址</label>
+        <input type="text" class="prop-input" id="elementLink">
+      </div>
+      <button class="header-btn btn-save" style="width: 100%;" onclick="updateElement()">更新元素</button>
+    </div>
+  </aside>
+
+  <!-- 儲存提示 -->
+  <div class="toast" id="toast">✅ 儲存成功！</div>
+
+  <script is:inline>
+    // 全域變數
+    let placedElements = [];
+    let selectedElement = null;
+    let draggedTool = null;
+    
+    // 切換側邊欄標籤
+    function switchTab(tab) {
+      document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      if (tab === 'components') {
+        document.getElementById('components-panel').style.display = 'block';
+        document.getElementById('properties-panel').classList.remove('active');
+      } else {
+        document.getElementById('components-panel').style.display = 'none';
+        document.getElementById('properties-panel').classList.add('active');
+      }
+    }
+    
+    // 切換頁面
+    document.getElementById('pageSelect').addEventListener('change', function() {
+      const url = this.value;
+      document.getElementById('previewFrame').src = url;
+    });
+    
+    // 初始化拖曳事件
+    document.addEventListener('DOMContentLoaded', function() {
+      initDragAndDrop();
+      initFrameInteraction();
+    });
+    
+    // 拖曳功能
+    function initDragAndDrop() {
+      const toolItems = document.querySelectorAll('.tool-item');
+      const dropZone = document.getElementById('dropZone');
+      const previewContainer = document.getElementById('previewContainer');
+      
+      // 工具項目拖曳開始
+      toolItems.forEach(item => {
+        item.addEventListener('dragstart', function(e) {
+          draggedTool = {
+            type: this.dataset.type,
+            icon: this.dataset.icon,
+            name: this.dataset.name
+          };
+          this.classList.add('dragging');
+          e.dataTransfer.setData('text/plain', JSON.stringify(draggedTool));
+        });
+        
+        item.addEventListener('dragend', function() {
+          this.classList.remove('dragging');
+          dropZone.classList.remove('active');
+        });
+      });
+      
+      // 拖曳進入預覽區域
+      previewContainer.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        dropZone.classList.add('active');
+      });
+      
+      previewContainer.addEventListener('dragleave', function(e) {
+        if (!previewContainer.contains(e.relatedTarget)) {
+          dropZone.classList.remove('active');
+        }
+      });
+      
+      // 放置元件
+      previewContainer.addEventListener('drop', function(e) {
+        e.preventDefault();
+        dropZone.classList.remove('active');
+        
+        if (draggedTool) {
+          addElementToPage(draggedTool);
+          draggedTool = null;
+        }
+      });
+    }
+    
+    // 新增元件到頁面
+    function addElementToPage(tool) {
+      const frame = document.getElementById('previewFrame');
+      const frameDoc = frame.contentDocument || frame.contentWindow.document;
+      
+      // 建立新元件
+      const element = frameDoc.createElement('div');
+      element.className = 'placed-element editable-element';
+      element.dataset.type = tool.type;
+      element.dataset.id = Date.now();
+      
+      // 根據元件類型建立內容
+      switch(tool.type) {
+        case 'heading':
+          element.innerHTML = '<h2>' + tool.name + '</h2>';
+          break;
+        case 'text':
+          element.innerHTML = '<p>點擊編輯文字內容...</p>';
+          break;
+        case 'image':
+          element.innerHTML = '<div style="padding: 20px; background: #f0f0f0; text-align: center;">🖼️ 點擊上傳圖片</div>';
+          break;
+        case 'button':
+          element.innerHTML = '<button style="padding: 10px 20px; background: #8B4513; color: white; border: none; border-radius: 5px;">' + tool.name + '</button>';
+          break;
+        case 'spacer':
+          element.innerHTML = '<div style="height: 50px;"></div>';
+          break;
+        case 'divider':
+          element.innerHTML = '<hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">';
+          break;
+        case 'card':
+          element.innerHTML = '<div style="padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"><h3>卡片標題</h3><p>卡片內容...</p></div>';
+          break;
+        case 'video':
+          element.innerHTML = '<div style="padding: 40px; background: #f0f0f0; text-align: center;">🎬 點擊嵌入影片</div>';
+          break;
+        default:
+          element.innerHTML = '<div>' + tool.icon + ' ' + tool.name + '</div>';
+      }
+      
+      // 加入工具列
+      element.innerHTML += '<div class="element-toolbar"><button class="element-btn btn-edit" onclick="editElement(this)">✏️</button><button class="element-btn btn-delete" onclick="deleteElement(this)">🗑️</button></div>';
+      
+      // 添加到 body
+      frameDoc.body.appendChild(element);
+      
+      // 記錄已放置的元件
+      placedElements.push({
+        id: element.dataset.id,
+        type: tool.type,
+        element: element
+      });
+      
+      showToast('✅ 已新增 ' + tool.name);
+    }
+    
+    // 初始化 iframe 內部交互
+    function initFrameInteraction() {
+      const frame = document.getElementById('previewFrame');
+      
+      frame.addEventListener('load', function() {
+        try {
+          const frameDoc = frame.contentDocument || frame.contentWindow.document;
+          
+          // 點擊元素選擇
+          frameDoc.addEventListener('click', function(e) {
+            if (e.target.classList.contains('editable-element') || e.target.closest('.editable-element')) {
+              const element = e.target.classList.contains('editable-element') ? e.target : e.target.closest('.editable-element');
+              selectElement(element);
+            }
+          });
+          
+        } catch(e) {
+          console.log('Cannot access frame content:', e);
+        }
+      });
+    }
+    
+    // 選擇元素
+    function selectElement(element) {
+      selectedElement = element;
+      
+      // 移除其他選取
+      const frame = document.getElementById('previewFrame');
+      try {
+        const frameDoc = frame.contentDocument || frame.contentWindow.document;
+        frameDoc.querySelectorAll('.editing-element').forEach(el => {
+          el.classList.remove('editing-element');
+        });
+        
+        element.classList.add('editing-element');
+      } catch(e) {}
+      
+      // 顯示屬性面板
+      document.getElementById('propertiesSidebar').classList.add('open');
+      document.getElementById('elementType').value = element.dataset.type || 'unknown';
+      document.getElementById('elementText').value = element.textContent || '';
+    }
+    
+    // 編輯元素
+    function editElement(btn) {
+      const element = btn.closest('.editable-element');
+      if (element) {
+        selectElement(element);
+      }
+    }
+    
+    // 刪除元素
+    function deleteElement(btn) {
+      const element = btn.closest('.editable-element');
+      if (element && confirm('確定要刪除這個元件嗎？')) {
+        element.remove();
+        placedElements = placedElements.filter(el => el.element !== element);
+        showToast('🗑️ 已刪除');
+      }
+    }
+    
+    // 更新元素
+    function updateElement() {
+      if (selectedElement) {
+        const text = document.getElementById('elementText').value;
+        const link = document.getElementById('elementLink').value;
+        
+        // 更新文字
+        if (selectedElement.tagName === 'P' || selectedElement.tagName === 'H2' || selectedElement.tagName === 'H3') {
+          selectedElement.textContent = text;
+        } else {
+          // 嘗試找到文字元素
+          const textEl = selectedElement.querySelector('p, h2, h3, span');
+          if (textEl) textEl.textContent = text;
+        }
+        
+        // 更新連結
+        const linkEl = selectedElement.querySelector('a');
+        if (linkEl && link) {
+          linkEl.href = link;
+        }
+        
+        showToast('✅ 已更新元素');
+      }
+    }
+    
+    // 套用屬性
+    function applyProperties() {
+      if (selectedElement) {
+        const bg = document.getElementById('prop-bg').value;
+        const color = document.getElementById('prop-color').value;
+        const size = document.getElementById('prop-size').value;
+        const align = document.getElementById('prop-align').value;
+        
+        selectedElement.style.backgroundColor = bg;
+        selectedElement.style.color = color;
+        selectedElement.style.fontSize = size + 'px';
+        selectedElement.style.textAlign = align;
+        
+        showToast('✅ 已套用屬性');
+      }
+    }
+    
+    // 儲存變更
+    function saveChanges() {
+      // 收集所有放置的元件資料
+      const savedData = {
+        page: document.getElementById('pageSelect').value,
+        elements: placedElements.map(el => ({
+          type: el.type,
+          id: el.id
+        })),
+        timestamp: new Date().toISOString()
+      };
+      
+      // 儲存到 localStorage
+      localStorage.setItem('editor_data_' + savedData.page, JSON.stringify(savedData));
+      
+      showToast('✅ 儲存成功！');
+    }
+    
+    // 發布網站
+    function publishSite() {
+      if (confirm('確定要發布網站嗎？這會將所有變更更新到正式網站。')) {
+        saveChanges();
+        
+        const toast = document.getElementById('toast');
+        toast.textContent = '🚀 發布成功！';
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+          toast.textContent = '✅ 儲存成功！';
+        }, 3000);
+      }
+    }
+    
+    // 預覽切換
+    function togglePreview() {
+      const frame = document.getElementById('previewFrame');
+      const currentSrc = frame.src;
+      frame.src = '';
+      setTimeout(() => frame.src = currentSrc, 100);
+      showToast('👁️ 已重新整理預覽');
+    }
+    
+    // 顯示提示
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+    
+    console.log('網站編輯器已啟動 - 支援拖曳元件到預覽區域');
+  </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+---
+interface Props {
+  pdfUrl: string;
+  title?: string;
+}
+
+const { pdfUrl, title = "電子書" } = Astro.props;
+---
+
+<div class="flipbook-wrapper">
+  <div class="viewer-header">
+    <h3>{title}</h3>
+    <div class="controls">
+      <button class="ctrl-btn prev-btn" disabled>◀</button>
+      <span class="page-info">
+        <span class="current-page">1</span>
+        <span>/</span>
+        <span class="total-pages">-</span>
+      </span>
+      <button class="ctrl-btn next-btn" disabled>▶</button>
+    </div>
+  </div>
+  
+  <div class="flipbook-viewport">
+    <div id="flipbook-area"></div>
+  </div>
+  
+  <div class="pdf-url-data" data-url={pdfUrl}></div>
+</div>
+
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script is:inline>
+/**
+ * 光禾通訊 Flipbook - 3D 翻頁效果
+ * 使用 StPageFlip + PDF.js
+ */
+(function() {
+  'use strict';
+  
+  const AREA_ID = 'flipbook-area';
+  let pageFlip = null;
+  let currentPage = 1;
+  let totalPages = 0;
+  let pageImages = [];
+  
+  // 初始化
+  function init() {
+    const wrapper = document.querySelector('.flipbook-wrapper');
+    if (!wrapper) {
+      console.error('Flipbook wrapper not found');
+      return;
+    }
+    
+    const dataEl = wrapper.querySelector('.pdf-url-data');
+    const pdfUrl = dataEl?.getAttribute('data-url');
+    
+    if (!pdfUrl || pdfUrl === 'undefined' || pdfUrl === '') {
+      showError('URL 無效');
+      return;
+    }
+    
+    console.log('載入 PDF:', pdfUrl);
+    
+    // 載入 StPageFlip
+    loadStPageFlip().then(() => {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      loadPDF(pdfUrl);
+    }).catch(err => {
+      showError('載入翻頁庫失敗');
+      console.error(err);
+    });
+  }
+  
+  function showError(msg) {
+    const area = document.getElementById(AREA_ID);
+    if (area) area.innerHTML = '<div class="error">' + msg + '</div>';
+    console.error(msg);
+  }
+  
+  async function loadStPageFlip() {
+    return new Promise((resolve, reject) => {
+      if (typeof St !== 'undefined' && St.PageFlip) {
+        resolve();
+        return;
+      }
+      
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js';
+      script.onload = () => {
+        console.log('StPageFlip loaded');
+        resolve();
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  
+  async function loadPDF(pdfUrl) {
+    const area = document.getElementById(AREA_ID);
+    area.innerHTML = '<div class="loading">正在轉換 PDF...</div>';
+    
+    try {
+      const loadingTask = pdfjsLib.getDocument(pdfUrl);
+      const pdf = await loadingTask.promise;
+      totalPages = pdf.numPages;
+      
+      console.log('PDF 載入成功，頁數:', totalPages);
+      
+      document.querySelector('.total-pages').textContent = totalPages;
+      
+      pageImages = [];
+      
+      // 渲染每頁
+      for (let i = 1; i <= totalPages; i++) {
+        area.innerHTML = '<div class="loading">正在渲染 ' + i + ' / ' + totalPages + '...</div>';
+        
+        const page = await pdf.getPage(i);
+        const scale = 1.2;
+        const viewport = page.getViewport({ scale: scale });
+        
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        
+        await page.render({ 
+          canvasContext: ctx, 
+          viewport: viewport 
+        }).promise;
+        
+        pageImages.push(canvas.toDataURL('image/jpeg', 0.8));
+      }
+      
+      // 初始化 flipbook
+      initFlipBook();
+      
+    } catch (error) {
+      console.error('PDF 錯誤:', error);
+      showError('PDF 載入失敗');
+    }
+  }
+  
+  function initFlipBook() {
+    const area = document.getElementById(AREA_ID);
+    
+    if (pageImages.length === 0) {
+      showError('沒有頁面');
+      return;
+    }
+    
+    try {
+      // 使用 loadFromImages 方法
+      const firstImg = new Image();
+      firstImg.src = pageImages[0];
+      
+      firstImg.onload = function() {
+        const w = firstImg.width;
+        const h = firstImg.height;
+        
+        // 建立 flipbook 容器
+        area.innerHTML = '<div class="book-target"></div>';
+        const target = area.querySelector('.book-target');
+        
+        pageFlip = new St.PageFlip(target, {
+          width: w,
+          height: h,
+          size: 'stretch',
+          minWidth: 200,
+          maxWidth: 500,
+          minHeight: 280,
+          maxHeight: 700,
+          maxShadowOpacity: 0.5,
+          showCover: true,
+          flippingTime: 600,
+          mobileScrollSupport: true,
+          swipeDistance: 15,
+          useMouseEvents: true
+        });
+        
+        // 這是正確的載入方式
+        pageFlip.loadFromImages(pageImages);
+        
+        // 事件
+        pageFlip.on('flip', function(e) {
+          currentPage = e.data + 1;
+          document.querySelector('.current-page').textContent = currentPage;
+        });
+        
+        enableButtons();
+        console.log('Flipbook OK, size:', w, 'x', h);
+      };
+      
+    } catch (error) {
+      console.error('FlipBook 錯誤:', error);
+      showError('翻頁初始化失敗');
+    }
+  }
+  
+  function enableButtons() {
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+    
+    prevBtn.onclick = function() {
+      if (pageFlip) pageFlip.flipPrev();
+    };
+    
+    nextBtn.onclick = function() {
+      if (pageFlip) pageFlip.flipNext();
+    };
+  }
+  
+  // 啟動
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  document.addEventListener('astro:page-load', init);
+})();
+</script>
+
+<style>
+  .flipbook-wrapper {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    margin: 2rem auto;
+  }
+
+  .viewer-header {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .viewer-header h3 { margin: 0; font-size: 1.1rem; }
+
+  .controls { display: flex; align-items: center; gap: 1rem; }
+
+  .ctrl-btn {
+    background: rgba(255,255,255,0.25);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+
+  .ctrl-btn:hover:not(:disabled) {
+    background: rgba(255,255,255,0.45);
+    transform: scale(1.1);
+  }
+
+  .ctrl-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .page-info {
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .flipbook-viewport {
+    background: linear-gradient(135deg, #2c1810 0%, #4a2c2a 50%, #2c1810 100%);
+    padding: 15px;
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #flipbook-area {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .book-target { display: block; }
+
+  :global(.stf__item) {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .loading, .error {
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .error { color: #ff8888; }
+
+  @media (max-width: 768px) {
+    .viewer-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    .flipbook-viewport {
+      padding: 10px;
+      min-height: 320px;
+    }
+  }
+</style>
