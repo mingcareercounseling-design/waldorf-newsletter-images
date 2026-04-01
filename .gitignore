@@ -7,3 +7,4 @@ npm-debug.log*
 .env.production
 .DS_Store
 .idea/
+public/newsletter/光禾通訊/
