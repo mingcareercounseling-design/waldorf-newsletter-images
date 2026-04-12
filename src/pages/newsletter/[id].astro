@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navigation from '../../components/Navigation.astro';
-import SimpleSlider from '../../components/SimpleSlider.astro';
+import FlipbookV2 from '../../components/FlipbookV2.astro';
 
 export function getStaticPaths() {
   // PNG 格式期數與編號位數對照
@@ -71,9 +71,10 @@ const { id, title, semester, images } = Astro.props;
     <div class="container">
       <p class="intro">選擇一期開始閱讀</p>
       
-      <SimpleSlider 
-        imageUrls={images} 
-        title={`${title} - ${semester}`}
+      <FlipbookV2
+        imageUrls={images}
+        title={title}
+        semester={semester}
       />
       
       <div class="issue-links">
