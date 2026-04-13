@@ -4,6 +4,9 @@ import Navigation from '../../components/Navigation.astro';
 import FlipbookV2 from '../../components/FlipbookV2.astro';
 
 export function getStaticPaths() {
+  // 圖片 CDN 基底網址（GitHub raw CDN）
+  const CDN_BASE = 'https://raw.githubusercontent.com/mingcareercounseling-design/waldorf-newsletter-images/main';
+
   // PNG 格式期數與編號位數對照
   // 36期只有66頁 -> 2位數
   // 35期有120頁 -> 3位數
@@ -13,7 +16,7 @@ export function getStaticPaths() {
     '35': { count: 120, digits: 3 },  // 3位數編號
     '34': { count: 100, digits: 3 },  // 3位數編號
   };
-  
+
   const data = {
     '36': { title: '第36期', semester: '113學年度 秋冬學季合輯', count: 66 },
     '35': { title: '第35期', semester: '112學年度 秋冬學季合輯', count: 120 },
@@ -29,21 +32,21 @@ export function getStaticPaths() {
     '24-25': { title: '光禾通訊24-25', semester: '113-114學年度合訂本', count: 52 },
     '23': { title: '第23期', semester: '109學年度 春學季刊', count: 65 },
   };
-  
+
   return Object.entries(data).map(([id, item]) => {
     const prefix = id === '24-25' ? 'NO24-25' : 'NO' + id;
     const pngInfo = pngConfig[id];
     const images = [];
-    
+
     for (let i = 1; i <= item.count; i++) {
       if (pngInfo) {
         // PNG 期數：根據配置使用對應位數
         const numStr = i.toString().padStart(pngInfo.digits, '0');
-        images.push(`/newsletter/光禾通訊/${prefix}-${numStr}.png`);
+        images.push(`${CDN_BASE}/${prefix}-${numStr}.png`);
       } else {
         // JPG 期數：使用 2 位數
         const numStr = i.toString().padStart(2, '0');
-        images.push(`/newsletter/光禾通訊/${prefix}-${numStr}.jpg`);
+        images.push(`${CDN_BASE}/${prefix}-${numStr}.jpg`);
       }
     }
     
