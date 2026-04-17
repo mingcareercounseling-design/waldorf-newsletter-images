@@ -203,15 +203,47 @@ const { imageUrls, title = "光禾通訊", semester = "" } = Astro.props;
       if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { pageFlip.flipPrev('bottom'); e.preventDefault(); }
     });
 
-    // 全螢幕
+    // 全螢幕（iOS Safari 不支援 requestFullscreen，改用 CSS 偽全螢幕）
+    function enterPseudo() {
+      const wrapper = document.querySelector('.fb-wrapper');
+      wrapper.classList.add('fb-pseudo-fullscreen');
+      document.body.style.overflow = 'hidden';
+      elFullscreen.textContent = '✕';
+    }
+    function exitPseudo() {
+      const wrapper = document.querySelector('.fb-wrapper');
+      wrapper.classList.remove('fb-pseudo-fullscreen');
+      document.body.style.overflow = '';
+      elFullscreen.textContent = '⛶';
+    }
+    function isPseudo() {
+      return document.querySelector('.fb-wrapper').classList.contains('fb-pseudo-fullscreen');
+    }
+
     elFullscreen.onclick = function () {
       const wrapper = document.querySelector('.fb-wrapper');
-      if (!document.fullscreenElement) {
-        wrapper.requestFullscreen && wrapper.requestFullscreen();
+      const nativeOk = !!(wrapper.requestFullscreen || wrapper.webkitRequestFullscreen);
+      const inNative = !!(document.fullscreenElement || document.webkitFullscreenElement);
+
+      if (nativeOk) {
+        if (inNative) {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else {
+          (wrapper.requestFullscreen || wrapper.webkitRequestFullscreen).call(wrapper);
+        }
       } else {
-        document.exitFullscreen && document.exitFullscreen();
+        // iOS Safari fallback
+        isPseudo() ? exitPseudo() : enterPseudo();
       }
     };
+
+    // 同步原生全螢幕按鈕文字
+    document.addEventListener('fullscreenchange', function () {
+      elFullscreen.textContent = document.fullscreenElement ? '✕' : '⛶';
+    });
+    document.addEventListener('webkitfullscreenchange', function () {
+      elFullscreen.textContent = (document.fullscreenElement || document.webkitFullscreenElement) ? '✕' : '⛶';
+    });
 
     // 縮圖點擊
     elThumbs.forEach(function (thumb) {

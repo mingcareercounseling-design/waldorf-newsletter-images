@@ -4,21 +4,6 @@ import Navigation from '../../../components/Navigation.astro';
 
 const { id } = Astro.params;
 
-export function getStaticPaths() {
-  return [
-    { params: { id: 'index' } },
-    { params: { id: 'about' } },
-    { params: { id: 'admissions' } },
-    { params: { id: 'curriculum' } },
-    { params: { id: 'activities' } },
-    { params: { id: 'newsletter' } },
-    { params: { id: 'calendar' } },
-    { params: { id: 'finance' } },
-    { params: { id: 'support' } },
-    { params: { id: 'contact' } },
-  ];
-}
-
 // 模擬資料 - 之後會從資料庫讀取
 const pageData: Record<string, any> = {
   'index': {

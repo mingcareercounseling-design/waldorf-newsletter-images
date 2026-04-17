@@ -64,18 +64,25 @@ const newsletterIssues = [
           <a href="/admin/newsletter/new" class="add-btn">➕ 新增期數</a>
         </div>
         
-        <!-- 網站設定 -->
-        <div class="admin-card">
-          <h3>⚙️ 網站設定</h3>
-          <p>學校資訊、聯絡方式、Logo</p>
-          <a href="/admin/settings" class="action-btn">前往設定</a>
+        <!-- Decap CMS 進階編輯 -->
+        <div class="admin-card highlight-cms">
+          <h3>✏️ 進階內容編輯器</h3>
+          <p>富文本編輯器，支援圖片、粗體、清單等格式。需要 GitHub 帳號登入。</p>
+          <a href="/admin/index.html" class="action-btn" target="_blank">開啟 Decap CMS</a>
         </div>
-        
+
         <!-- 預覽 -->
         <div class="admin-card">
           <h3>👀 前台預覽</h3>
           <p>查看網站前台顯示效果</p>
           <a href="/" target="_blank" class="action-btn">開啟新視窗</a>
+        </div>
+
+        <!-- 登出 -->
+        <div class="admin-card">
+          <h3>🔒 帳號</h3>
+          <p>結束管理工作時請登出</p>
+          <a href="/admin/logout" class="action-btn logout-btn">登出</a>
         </div>
       </div>
     </div>
@@ -155,5 +162,13 @@ const newsletterIssues = [
   
   .add-btn:hover, .action-btn:hover {
     opacity: 0.9;
+  }
+
+  .admin-card.highlight-cms {
+    border: 2px solid #8B4513;
+  }
+
+  .logout-btn {
+    background: linear-gradient(135deg, #666, #444);
   }
 </style>
