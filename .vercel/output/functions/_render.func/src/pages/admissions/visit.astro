@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="預約參訪 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>預約參訪</h1>
+      <p>走進光禾，認識華德福教育</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="intro">
+        <p>我們誠摯邀請您與孩子一同走進光禾華德福，體驗充滿生命力與節奏感的學習環境。</p>
+        <p>請填寫以下表單，我們將有專人與您電話聯繫確認參訪時間。</p>
+      </div>
+
+      <div class="form-container">
+        <form class="visit-form" action="#" method="POST">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="parentName">家長姓名 <span class="required">*</span></label>
+              <input type="text" id="parentName" name="parentName" required placeholder="請輸入您的姓名" />
+            </div>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="phone">聯絡電話 <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" required placeholder="0912-345-678" />
+            </div>
+            <div class="form-group">
+              <label for="email">電子郵件 <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="example@email.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="visitDate">預計參訪日期及時間 <span class="required">*</span></label>
+              <input type="datetime-local" id="visitDate" name="visitDate" required />
+              <p class="hint">我們將有專人電話與您確認</p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="childInfo">您的孩子性別，目前就讀學校及就讀年級 <span class="required">*</span></label>
+              <input type="text" id="childInfo" name="childInfo" required placeholder="例如：男，高雄市XX國小，三年級" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="message">備註（欲了解資訊）</label>
+              <textarea id="message" name="message" rows="3" placeholder="歡迎分享您想了解的資訊..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">送出申請</button>
+
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>其他聯繫方式</h3>
+        <p>電話：07-7885128</p>
+        <p>Email：waldorf.kh@gmail.com</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 700px; margin: 0 auto; }
+
+  .intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .intro p { color: #666; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; }
+
+  .form-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .form-row { margin-bottom: 1.5rem; }
+  .form-row.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group label {
+    display: block;
+    color: #8B4513;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .required { color: #e65100; }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0d4c8;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #8B4513;
+  }
+
+  .hint {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.3rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #228B22, #8B4513);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+  }
+
+  .contact-info {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f5f5f5;
+    border-radius: 15px;
+  }
+
+  .contact-info h3 { color: #8B4513; margin-bottom: 0.5rem; }
+  .contact-info p { color: #666; margin: 0.3rem 0; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+
+  @media (max-width: 600px) {
+    .form-row.two-col { grid-template-columns: 1fr; }
+  }
+</style>

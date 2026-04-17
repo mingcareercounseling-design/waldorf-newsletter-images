@@ -1,0 +1,26 @@
+import { c as createComponent } from './astro-component_DtgDE76K.mjs';
+import 'piccolore';
+import { L as renderTemplate, x as maybeRenderHead } from './sequence_D8ekMvs6.mjs';
+import { r as renderComponent } from './entrypoint_CHgLRPWq.mjs';
+import { $ as $$Layout } from './Layout_C2LtPF5i.mjs';
+import { $ as $$Navigation } from './Navigation__mK9drz8.mjs';
+
+const $$Admissions = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "招生資訊", "data-astro-cid-macr5mom": true }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Navigation", $$Navigation, { "data-astro-cid-macr5mom": true })} ${maybeRenderHead()}<section class="hero-small" data-astro-cid-macr5mom> <div class="container" data-astro-cid-macr5mom> <h1 data-astro-cid-macr5mom>招生資訊</h1> <p data-astro-cid-macr5mom>歡迎加入光禾華德福大家庭</p> </div> </section> <section class="section" data-astro-cid-macr5mom> <div class="container" data-astro-cid-macr5mom> <div class="admissions-card" data-astro-cid-macr5mom> <div class="badge" data-astro-cid-macr5mom>115學年度</div> <h2 data-astro-cid-macr5mom>招生中</h2> <p class="subtitle" data-astro-cid-macr5mom>給孩子一個不一樣的學習旅程</p> <div class="info-grid" data-astro-cid-macr5mom> <div class="info-item" data-astro-cid-macr5mom> <span class="info-icon" data-astro-cid-macr5mom>📅</span> <div data-astro-cid-macr5mom> <h4 data-astro-cid-macr5mom>報名截止</h4> <p data-astro-cid-macr5mom>115年03月16日（週一）12:00</p> </div> </div> <div class="info-item" data-astro-cid-macr5mom> <span class="info-icon" data-astro-cid-macr5mom>👶</span> <div data-astro-cid-macr5mom> <h4 data-astro-cid-macr5mom>招生年級</h4> <p data-astro-cid-macr5mom>國小部、國中部、高中部</p> </div> </div> <div class="info-item" data-astro-cid-macr5mom> <span class="info-icon" data-astro-cid-macr5mom>📍</span> <div data-astro-cid-macr5mom> <h4 data-astro-cid-macr5mom>上課地點</h4> <p data-astro-cid-macr5mom>高雄市前鎮區德昌路345號</p> </div> </div> <div class="info-item" data-astro-cid-macr5mom> <span class="info-icon" data-astro-cid-macr5mom>📞</span> <div data-astro-cid-macr5mom> <h4 data-astro-cid-macr5mom>聯絡電話</h4> <p data-astro-cid-macr5mom>07-7885128</p> </div> </div> </div> <a href="https://forms.gle/Sa2uHLVTBgXPrBKi6" target="_blank" class="btn-primary large" data-astro-cid-macr5mom>
+立即線上報名
+</a> </div> </div> </section> <section class="section process" data-astro-cid-macr5mom> <div class="container" data-astro-cid-macr5mom> <h2 class="section-title" data-astro-cid-macr5mom>報名流程</h2> <div class="process-steps" data-astro-cid-macr5mom> <div class="step" data-astro-cid-macr5mom> <div class="step-number" data-astro-cid-macr5mom>1</div> <h3 data-astro-cid-macr5mom>填寫報名表</h3> <p data-astro-cid-macr5mom>點擊上方連結填寫 Google 表單</p> </div> <div class="step-arrow" data-astro-cid-macr5mom>→</div> <div class="step" data-astro-cid-macr5mom> <div class="step-number" data-astro-cid-macr5mom>2</div> <h3 data-astro-cid-macr5mom>參加說明會</h3> <p data-astro-cid-macr5mom>帶孩子一起體驗華德福課程</p> </div> <div class="step-arrow" data-astro-cid-macr5mom>→</div> <div class="step" data-astro-cid-macr5mom> <div class="step-number" data-astro-cid-macr5mom>3</div> <h3 data-astro-cid-macr5mom>入學評估</h3> <p data-astro-cid-macr5mom>觀察孩子與老師的互動</p> </div> <div class="step-arrow" data-astro-cid-macr5mom>→</div> <div class="step" data-astro-cid-macr5mom> <div class="step-number" data-astro-cid-macr5mom>4</div> <h3 data-astro-cid-macr5mom>錄取通知</h3> <p data-astro-cid-macr5mom>收到錄取通知後完成報到</p> </div> </div> </div> </section> <section class="section features" data-astro-cid-macr5mom> <div class="container" data-astro-cid-macr5mom> <h2 class="section-title" data-astro-cid-macr5mom>為什麼選擇光禾？</h2> <div class="features-grid" data-astro-cid-macr5mom> <div class="feature-card" data-astro-cid-macr5mom> <div class="feature-icon" data-astro-cid-macr5mom>🏆</div> <h3 data-astro-cid-macr5mom>評鑑優等</h3> <p data-astro-cid-macr5mom>連續多年榮獲高雄市教育局評鑑最高肯定</p> </div> <div class="feature-card" data-astro-cid-macr5mom> <div class="feature-icon" data-astro-cid-macr5mom>🌍</div> <h3 data-astro-cid-macr5mom>世界認證</h3> <p data-astro-cid-macr5mom>榮登2024世界華德福學校名錄</p> </div> <div class="feature-card" data-astro-cid-macr5mom> <div class="feature-icon" data-astro-cid-macr5mom>👨‍🏫</div> <h3 data-astro-cid-macr5mom>專業師資</h3> <p data-astro-cid-macr5mom>受過完整華德福師資培訓的教師團隊</p> </div> <div class="feature-card" data-astro-cid-macr5mom> <div class="feature-icon" data-astro-cid-macr5mom>💚</div> <h3 data-astro-cid-macr5mom>全人發展</h3> <p data-astro-cid-macr5mom>重視孩子身、心、靈的均衡成長</p> </div> </div> </div> </section> <footer class="footer" data-astro-cid-macr5mom> <div class="container" data-astro-cid-macr5mom> <p data-astro-cid-macr5mom>© 2026 光禾華德福實驗學校. All rights reserved.</p> </div> </footer> ` })}`;
+}, "/Users/sam/.openclaw/workspace/waldorf-website/src/pages/admissions.astro", void 0);
+
+const $$file = "/Users/sam/.openclaw/workspace/waldorf-website/src/pages/admissions.astro";
+const $$url = "/admissions";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Admissions,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

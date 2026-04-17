@@ -1,0 +1,199 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="轉出流程 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>轉出流程</h1>
+      <p>學生轉出申請須知</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h2>📞 告知導師與師長座談</h2>
+          <p>家長向導師表達轉出意願後，由導師安排家長、導師及校務代表進行座談。</p>
+          <p>確認轉出決定後，資訊會轉送至學務處。</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h2>📝 申請表單（學務處）</h2>
+          <p>家長需於<strong>轉出前一個月</strong>攜帶以下文件至學務處領取轉出申請表：</p>
+          <ul>
+            <li>監護人身分證影本</li>
+            <li>學生戶口名簿影本</li>
+            <li>退款帳戶存摺影本</li>
+          </ul>
+          <p class="note">表單填寫完成後需於一週內繳回</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h2>📋 行政作業（學務處）</h2>
+          <p>學務處會協助整理以下資料：</p>
+          <ul>
+            <li>學生成績單</li>
+            <li>準備轉學證明書用印</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h2>💰 費用結算（會計室）</h2>
+          <p>會計室會進行以下作業：</p>
+          <ul>
+            <li>計算學生實際就讀天數</li>
+            <li>核算應退還學費金額</li>
+            <li>開立退款收據</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h2>🎓 最終領取</h2>
+          <p>家長需親自到校完成以下事項：</p>
+          <ul>
+            <li>至會計室簽領學費退款</li>
+            <li>領取正式<strong>轉學證明書</strong></li>
+          </ul>
+          <p class="note">請於實際轉出日前完成辦理</p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <h3>⚠️ 重要提醒</h3>
+        <ul>
+          <li>請務必於轉出前<strong>一個月</strong>告知學校</li>
+          <li>所有表單需於一週內繳回</li>
+          <li>家長需親自到校領取轉學證明書</li>
+        </ul>
+      </div>
+
+      <div class="contact">
+        <h3>📞 聯絡資訊</h3>
+        <p>學務處：07-7885128</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .step-card {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .step-num {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .step-content h2 {
+    color: #8B4513;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p { color: #666; margin-bottom: 0.5rem; }
+
+  .step-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+  }
+
+  .step-content li {
+    color: #555;
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .step-content li::before {
+    content: "•";
+    color: #228B22;
+    position: absolute;
+    left: 0;
+  }
+
+  .note {
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  .notice {
+    background: #fff3e0;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+  }
+
+  .notice h3 { color: #e65100; margin-bottom: 1rem; }
+  .notice ul { list-style: none; padding: 0; }
+  .notice li { color: #666; padding: 0.4rem 0; }
+
+  .contact {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .contact h3 { color: #2e7d32; margin-bottom: 0.5rem; }
+  .contact p { color: #555; margin: 0; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="特色課程 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>特色課程</h1>
+      <p>豐富多元的學習體驗</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="course-card">
+        <div class="course-icon">🎨</div>
+        <h2>藝術課程</h2>
+        <div class="course-content">
+          <h3>美術</h3>
+          <p>水彩畫、蠟筆畫、炭筆畫、泥塑、版畫等多元藝術創作</p>
+          
+          <h3>音樂</h3>
+          <p>歌唱、直笛、弦樂器、銅管樂器、音樂欣賞</p>
+          
+          <h3>工藝</h3>
+          <p>木工、編織、陶藝、裁縫、金工</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🌳</div>
+        <h2>自然課程</h2>
+        <div class="course-content">
+          <h3>園藝</h3>
+          <p>種植蔬果、香草、花卉，學習耕種與生態知識</p>
+          
+          <h3>戶外探索</h3>
+          <p>森林漫步、自然觀察、戶外技能訓練</p>
+          
+          <h3>環境教育</h3>
+          <p>環保概念、永續生活、自然科學認識</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">📖</div>
+        <h2>人文課程</h2>
+        <div class="course-content">
+          <h3>說故事</h3>
+          <p>透過故事培養語言能力、想像力與道德觀</p>
+          
+          <h3>戲劇</h3>
+          <p>戲劇表演、肢體表達、節慶慶典</p>
+          
+          <h3>本土語言</h3>
+          <p>閩南語、客語、原住民語言文化</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🧘</div>
+        <h2>運動與健康</h2>
+        <div class="course-content">
+          <h3>優律思美</h3>
+          <p>華德福特有的肢體藝術，結合音樂與運動</p>
+          
+          <h3>徒手遊戲</h3>
+          <p>自由遊戲、團隊遊戲、運動會</p>
+          
+          <h3>健康教育</h3>
+          <p>營養教育、個人衛生、急救知識</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🔬</div>
+        <h2>科學與數學</h2>
+        <div class="course-content">
+          <h3>自然科學</h3>
+          <p>物理、化學、生物、地質、天文基礎認識</p>
+          
+          <h3>數學</h3>
+          <p>透過具體操作理解數學概念，培養數感</p>
+          
+          <h3>科技教育</h3>
+          <p>基本電腦技能、程式設計入門</p>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🛠</div>
+        <h2>技藝課程</h2>
+        <div class="course-content">
+          <h3>木工</h3>
+          <p>從基礎工具使用到完整作品創作</p>
+          
+          <h3>陶藝</h3>
+          <p>陶泥雕塑、陶盆製作、釉藥認識</p>
+          
+          <h3>金工</h3>
+          <p>金屬加工、首飾製作</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .course-card {
+    background: white;
+    border-radius: 25px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 15px 50px rgba(139,69,19,0.15);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .course-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+  }
+
+  .course-card h2 {
+    color: #8B4513;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .course-content h3 {
+    color: #228B22;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+  }
+
+  .course-content h3:first-child { margin-top: 0; }
+
+  .course-content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; }
+
+  @media (max-width: 768px) {
+    .course-card { flex-direction: column; text-align: center; }
+    .course-icon { margin: 0 auto; }
+  }
+</style>

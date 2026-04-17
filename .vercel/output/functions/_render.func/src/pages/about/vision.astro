@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="願景 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>光禾的願景</h1>
+      <p>我們對教育的期待與展望</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="vision-block">
+        <div class="vision-item">
+          <div class="number">1</div>
+          <div class="content">
+            <h3>愛與榜樣</h3>
+            <p>一群有志成人以「愛與榜樣」姿態，讓孩子在一個有界線但自由的環境下學習與成長。</p>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="number">2</div>
+          <div class="content">
+            <h3>自我實現與社會承擔</h3>
+            <p>透過華德福十二年一貫課程，培養孩子擁有「自我實現與承擔社會需要」的能力。</p>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="number">3</div>
+          <div class="content">
+            <h3>身心靈的教育</h3>
+            <p>讓社群的每個人辨識身心靈的教育，並且平衡與健康我們的生命。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .vision-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .vision-item {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+    align-items: flex-start;
+  }
+
+  .number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .content h3 {
+    color: #8B4513;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

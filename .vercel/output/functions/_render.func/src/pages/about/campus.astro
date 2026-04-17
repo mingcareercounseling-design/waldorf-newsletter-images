@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="校舍環境 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>校舍環境</h1>
+      <p>自然與溫馨的學習空間</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="intro-block">
+        <p>光禾華德福實驗學校位於高雄市前鎮區，校园環境温馨舒適，充滿自然氣息。我們相信良好的學習環境對孩子的成長至關重要，因此打造了一個兼具美感與機能的學習空間。</p>
+      </div>
+
+      <div class="environment-grid">
+        <div class="env-card">
+          <div class="env-icon">🌳</div>
+          <h3>自然庭院</h3>
+          <p>寬敞的戶外空間，讓孩子能在自然中活動、探索，感受四季變化</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">🏫</div>
+          <h3>溫馨教室</h3>
+          <p>充滿藝術氣息的教室空間，採用天然建材，色彩溫暖柔和</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">🎨</div>
+          <h3>美術教室</h3>
+          <p>專屬的藝術創作空間，配備齊全的美術器材</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">🪵</div>
+          <h3>木工教室</h3>
+          <p>完善的木工設備，讓孩子學習工藝技能</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">🎵</div>
+          <h3>音樂教室</h3>
+          <p>音樂教育空間，配備各種樂器</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">📚</div>
+          <h3>圖書室</h3>
+          <p>舒適的閱讀空間，收藏各類書籍</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">🍳</div>
+          <h3>廚房教室</h3>
+          <p>實作課程空間，孩子學習烹飪與飲食教育</p>
+        </div>
+
+        <div class="env-card">
+          <div class="env-icon">🌿</div>
+          <h3>農場花園</h3>
+          <p>種植空間，讓孩子體驗農耕與自然觀察</p>
+        </div>
+      </div>
+
+      <div class="safety-block">
+        <h2>安全與舒適</h2>
+        <ul class="safety-list">
+          <li>✓ 合格的消防設施</li>
+          <li>✓ 安全的遊戲設施</li>
+          <li>✓ 定期消毒清潔</li>
+          <li>✓ 良好的通風與採光</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #228B22, #8B4513);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  .intro-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .intro-block p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .environment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .env-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .env-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+  .env-card h3 { color: #8B4513; margin-bottom: 0.5rem; }
+
+  .env-card p { color: #666; margin: 0; font-size: 0.95rem; }
+
+  .safety-block {
+    background: linear-gradient(135deg, #FFF8DC, #f5deb3);
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  .safety-block h2 { color: #8B4513; margin-bottom: 1.5rem; }
+
+  .safety-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .safety-list li {
+    color: #228B22;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; }
+</style>

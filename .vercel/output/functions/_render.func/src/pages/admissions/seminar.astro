@@ -1,0 +1,218 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="說明會報名 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>說明會報名</h1>
+      <p>歡迎蒞臨參觀</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="info-card">
+        <h2>115學年度招生說明會</h2>
+        <p class="intro">在春光漸暖的時節，邀請您走進孩子真實而生動的學習現場，感受光禾華德福教育所蘊藏的節奏、力量與生命感。</p>
+        
+        <div class="highlight-box">
+          <h3>🌟 本次說明會特別安排課程體驗</h3>
+          <ul>
+            <li>國小部英文課程體驗</li>
+            <li>中學部數學（向量）課程體驗</li>
+          </ul>
+          <p>孩子將在故事、遊戲與節奏中培養語感，也在色彩與動作的探索裡，體驗數學概念如何被感受、被理解。</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>說明會場次</h2>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date">115年3月</div>
+            <div class="event-content">
+              <h3>春季招生說明會</h3>
+              <p>名額有限，額滿為止</p>
+            </div>
+          </div>
+        </div>
+        <p class="note">* 其他場次陸續安排中，敬請期待</p>
+      </div>
+
+      <div class="info-card">
+        <h2>說明會內容</h2>
+        <ul class="content-list">
+          <li>學校介紹與教育理念分享</li>
+          <li>課程說明與教學特色</li>
+          <li>師資介紹</li>
+          <li>參觀校園</li>
+          <li>課程體驗</li>
+          <li>Q&A 時間</li>
+        </ul>
+      </div>
+
+      <div class="info-card cta">
+        <h2>立即報名</h2>
+        <p>名額有限，歡迎提早報名！</p>
+        <a href="https://forms.gle/Sa2uHLVTBgXPrBKi6" target="_blank" class="btn-primary">
+          線上報名
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .info-card h2 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e0d4c8;
+  }
+
+  .intro {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #FFF8DC, #f5deb3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1.5rem;
+  }
+
+  .highlight-box h3 {
+    color: #8B4513;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .highlight-box li {
+    padding: 0.5rem 0;
+    color: #666;
+  }
+
+  .highlight-box li::before {
+    content: "✦ ";
+    color: #FF8C00;
+  }
+
+  .event-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .event-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #FFF8DC;
+    border-radius: 15px;
+  }
+
+  .event-date {
+    background: #228B22;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .event-content h3 {
+    color: #8B4513;
+    margin-bottom: 0.3rem;
+  }
+
+  .event-content p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .note {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .content-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .content-list li {
+    padding: 0.8rem 0;
+    color: #666;
+    border-bottom: 1px solid #e0d4c8;
+  }
+
+  .content-list li:last-child { border-bottom: none; }
+
+  .content-list li::before {
+    content: "✓ ";
+    color: #228B22;
+  }
+
+  .cta {
+    text-align: center;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+  }
+
+  .cta h2 { color: white; border-bottom: none; }
+  .cta p { color: rgba(255,255,255,0.9); }
+
+  .btn-primary {
+    display: inline-block;
+    background: white;
+    color: #8B4513;
+    padding: 1rem 3rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover { transform: scale(1.05); }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; }
+</style>

@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="聯絡我們">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>聯絡我們</h1>
+      <p>期待與您相遇</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <h3>學校地址</h3>
+          <p>806037<br>高雄市前鎮區德昌路345號<br>(興仁國中 理學大樓)</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <h3>電話</h3>
+          <p>07-7885128</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h3>Email</h3>
+          <p>waldorf.kh@gmail.com</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🕐</div>
+          <h3>上班時間</h3>
+          <p>週一至週五<br>09:00 - 17:00</p>
+        </div>
+        <div class="contact-card">
+          <a href="https://zh-tw.facebook.com/光禾華德福教育-831876970225632/" target="_blank" rel="noopener">
+            <div class="contact-icon">📱</div>
+            <h3>Facebook</h3>
+          </a>
+        </div>
+        <div class="contact-card">
+          <a href="https://www.instagram.com/kuang_he_waldorf_school/" target="_blank" rel="noopener">
+            <div class="contact-icon">📸</div>
+            <h3>Instagram</h3>
+          </a>
+        </div>
+        <div class="contact-card">
+          <a href="https://www.threads.com/@kuang_he_waldorf_school" target="_blank" rel="noopener">
+            <div class="contact-icon">💬</div>
+            <h3>Threads</h3>
+          </a>
+        </div>
+        <div class="contact-card">
+          <a href="https://www.youtube.com/channel/UCieLknPlzMYhlQRZQUH6rJA" target="_blank" rel="noopener">
+            <div class="contact-icon">▶️</div>
+            <h3>YouTube</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section map-section">
+    <div class="container">
+      <h2 class="section-title">地圖位置</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.574469437884!2d120.3088!3d22.5833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0488e8e8e8e8%3A0x8e8e8e8e8e8e8e8e8!2z6Z-p5biC6YKj5p6X5Y-w5Lqa5riv5biC6YSJ6YeR5a245LiL5a24!5e0!3m2!1szh-TW!2stw!4v1640000000000!5m2!1szh-TW!2stw" 
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section form-section">
+    <div class="container">
+      <h2 class="section-title">聯絡表單</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">電話</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+        <div class="form-group">
+          <label for="subject">主題</label>
+          <select id="subject" name="subject">
+            <option value="">請選擇</option>
+            <option value="admission">招生諮詢</option>
+            <option value="visit">參觀預約</option>
+            <option value="cooperation">合作提案</option>
+            <option value="other">其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">訊息內容</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">送出訊息</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #228B22 0%, #8B4513 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #8B4513;
+    margin-bottom: 3rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(139, 69, 19, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-card h3 {
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .contact-card a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+
+  .contact-card a:hover {
+    color: #8B4513;
+  }
+
+  .map-section {
+    background: #f5deb3;
+  }
+
+  .map-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(139, 69, 19, 0.15);
+  }
+
+  .contact-form {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(139, 69, 19, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    color: #8B4513;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0d4c8;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #8B4513;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer {
+    background: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="財務公開 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>財務公開</h1>
+      <p>光禾華德福實驗學校財務資訊公開</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="intro">依據相關法規要求，以下公開本校預算書、決算書及財務報表，供家長及社會大眾查閱。</p>
+
+      <div class="finance-section">
+        <h2>114 學年度</h2>
+        
+        <div class="finance-item">
+          <div class="finance-info">
+            <h3>114學年度預算書</h3>
+            <p class="date">公告日期：114年10月</p>
+          </div>
+          <a href="#" class="download-btn">下載 PDF</a>
+        </div>
+      </div>
+
+      <div class="finance-section">
+        <h2>113 學年度</h2>
+        
+        <div class="finance-item">
+          <div class="finance-info">
+            <h3>113學年度決算書</h3>
+            <p class="date">公告日期：114年10月</p>
+          </div>
+          <a href="#" class="download-btn">下載 PDF</a>
+        </div>
+
+        <div class="finance-item">
+          <div class="finance-info">
+            <h3>113學年度財務報表</h3>
+            <p class="date">公告日期：114年10月</p>
+          </div>
+          <a href="#" class="download-btn">下載 PDF</a>
+        </div>
+
+        <div class="finance-item">
+          <div class="finance-info">
+            <h3>113學年度監察人查核報告</h3>
+            <p class="date">公告日期：114年10月</p>
+          </div>
+          <a href="#" class="download-btn">下載 PDF</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .finance-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .finance-section h2 {
+    color: #8B4513;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 0.5rem;
+  }
+
+  .finance-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .finance-item:last-child {
+    border-bottom: none;
+  }
+
+  .finance-info h3 {
+    color: #333;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .finance-info .date {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .download-btn {
+    background: linear-gradient(135deg, #FF8C00, #FFA500);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>

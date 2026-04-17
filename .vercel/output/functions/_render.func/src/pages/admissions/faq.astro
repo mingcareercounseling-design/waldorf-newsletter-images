@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="招生Q&A | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>招生Q&A</h1>
+      <p>常見問題解答</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>❓ 華德福學校跟一般學校有什麼不同？</h3>
+          <p>華德福教育重視孩子的全人發展，強調「頭、心、手」的均衡教育。我們重視藝術、自然體驗和創造力培養，不主張過早的學業競爭，讓孩子在適合其發展階段的環境中成長。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 你們的學費多少？</h3>
+          <p>本校為公立實驗學校，依規定收取學雜費。詳細費用將於招生說明會中說明，也可電話洽詢。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 需要住宿嗎？</h3>
+          <p>本校為走讀制，暫不提供住宿。學生每日通勤上下課。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 師資來源？</h3>
+          <p>本校教師均受過專業華德福師資培訓，並具備合格教師資格。我們持續安排教師進修與研習，確保教學品質。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 適合什麼樣的孩子？</h3>
+          <p>華德福教育適合對藝術、自然有興趣，喜歡自由探索的孩子。我們注重每個孩子的獨特性，給予適性發展的空間。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 畢業後可以升學嗎？</h3>
+          <p>當然可以！華德福學生畢業後可依規定報考各級學校。我們的學生在創造力、思考力和解決問題的能力上都有很好的表現。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 家長需要配合什麼？</h3>
+          <p>我們期望家長認同華德福教育理念，願意參與學校活動，與教師保持良好溝通，共同支持孩子的成長。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 可以參觀學校嗎？</h3>
+          <p>歡迎！我們定期舉辦招生說明會與課程體驗活動，您可以帶孩子一起參加，近距離了解我校的教學環境與方式。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 報名需要什麼資料？</h3>
+          <p>請填寫線上報名表，並繳交戶口名簿影本、學期成績單等基本資料。詳細需求將於報名時說明。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>❓ 招生名額有限嗎？</h3>
+          <p>是的，每年招生名額有限，額滿為止。建議提早報名以確保名額。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #228B22, #8B4513);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .faq-item h3 {
+    color: #8B4513;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item p {
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; }
+</style>

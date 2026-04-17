@@ -1,0 +1,207 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+
+const { id } = Astro.params;
+const isNew = id === 'new';
+
+const issueData = isNew ? {
+  id: '',
+  title: '',
+  semester: '',
+  pdf: '',
+  images: []
+} : {
+  id: id,
+  title: `第${id}期`,
+  semester: id === '36' ? '113秋冬' : '112秋冬',
+  pdf: `/newsletter/光禾通訊/光禾通訊NO${id}.pdf`,
+  images: []
+};
+---
+
+<Layout title={isNew ? "新增光禾通訊" : `編輯第${id}期`}>
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>{isNew ? '新增光禾通訊' : `編輯第${id}期`}</h1>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <form class="upload-form" method="post" action="/api/newsletter/upload" enctype="multipart/form-data">
+        
+        <div class="form-group">
+          <label>期數標題</label>
+          <input type="text" name="title" value={issueData.title} placeholder="例如：第36期" />
+        </div>
+        
+        <div class="form-group">
+          <label>學年度</label>
+          <input type="text" name="semester" value={issueData.semester} placeholder="例如：113學年度 秋冬學季合輯" />
+        </div>
+        
+        <div class="form-group">
+          <label>PDF 檔案</label>
+          <div class="file-upload">
+            <input type="file" name="pdf" accept=".pdf" id="pdf-input" />
+            <label for="pdf-input" class="file-label">
+              <span class="upload-icon">📄</span>
+              <span class="upload-text">點擊選擇 PDF 檔案</span>
+            </label>
+          </div>
+          {!isNew && issueData.pdf && (
+            <p class="current-file">目前檔案：{issueData.pdf}</p>
+          )}
+        </div>
+        
+        <div class="info-box">
+          <h4>ℹ️ 自動轉換說明</h4>
+          <ul>
+            <li>上傳 PDF 後，系統會自動将其轉換為圖片</li>
+            <li>圖片會放在 /newsletter/光禾通訊/ 目錄</li>
+            <li>轉換完成後，前台會自動更新</li>
+            <li>建議 PDF 解析度為 150-300 DPI</li>
+          </ul>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">
+            {isNew ? '➕ 新增並轉換' : '💾 儲存'}
+          </button>
+          <a href="/admin" class="cancel-btn">取消</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .upload-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .form-group input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #8B4513;
+  }
+  
+  .file-upload {
+    position: relative;
+  }
+  
+  .file-upload input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem;
+    background: #f5f5f5;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .file-label:hover {
+    border-color: #8B4513;
+    background: #fafafa;
+  }
+  
+  .upload-icon {
+    font-size: 2rem;
+  }
+  
+  .upload-text {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .current-file {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .info-box {
+    background: #e8f5e9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-box h4 {
+    margin-bottom: 0.5rem;
+    color: #228B22;
+  }
+  
+  .info-box ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .info-box li {
+    margin-bottom: 0.3rem;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .submit-btn {
+    flex: 1;
+    padding: 1rem;
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .cancel-btn {
+    padding: 1rem 2rem;
+    background: #f5f5f5;
+    color: #666;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+</style>

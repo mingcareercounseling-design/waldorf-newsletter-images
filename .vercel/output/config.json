@@ -1,0 +1,232 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/association/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/campus/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/history/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/parent-schedule/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/parents/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/teachers/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/team/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/vision/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/waldorf-list/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/achievement/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/experience/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/highlights/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/photos/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/seasons/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/seminars/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/activities/videos/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/edit/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/edit/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/editor/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/logout/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/newsletter/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admin/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/apply/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/faq/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/guide/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/refund/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/seminar/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/transfer-out/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/transportation/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/tuition/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/visit/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/waldorf-qa/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/whatis/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/calendar/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/contact/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/development/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/elementary-courses/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/normalization/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/qa/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/qa-gallery/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/special/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/whatis/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/curriculum/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/finance/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/newsletter/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/newsletter/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/support/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/404/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

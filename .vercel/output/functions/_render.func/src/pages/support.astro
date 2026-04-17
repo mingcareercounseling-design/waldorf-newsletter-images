@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="支持光禾 | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>支持光禾</h1>
+      <p>感謝您對華德福教育的支持</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="intro-block">
+        <p>感謝您對光華華德福實驗學校的支持！您的捐助將用於：</p>
+        <ul>
+          <li>學校永續發展</li>
+          <li>教師培訓計畫</li>
+          <li>學生學習環境改善</li>
+          <li>各項教育活動舉辦</li>
+        </ul>
+      </div>
+
+      <div class="bank-card">
+        <h2>🏦 學校常用帳號</h2>
+        <div class="bank-info">
+          <div class="bank-item">
+            <h3>銀行代號：007（第一銀行-五甲分行）</h3>
+            <p>銀行帳號：720-10-656226</p>
+            <p>戶 名：光禾華德福實驗學校</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bank-card">
+        <h2>📋 專款專用帳號</h2>
+        <div class="bank-info">
+          <div class="bank-item">
+            <h3>🌟 學校永續發展基金專戶(學校)</h3>
+            <p>銀行代號：007（第一銀行-五甲分行）</p>
+            <p>銀行帳號：720-10-658911</p>
+            <p>戶 名：光禾華德福實驗學校</p>
+          </div>
+          
+          <div class="bank-item">
+            <h3>🌟 教師培訓計畫發展基金專戶(學校)</h3>
+            <p>銀行代號：007（第一銀行-五甲分行）</p>
+            <p>銀行帳號：720-10-658920</p>
+            <p>戶 名：光禾華德福實驗學校</p>
+          </div>
+          
+          <div class="bank-item">
+            <h3>🌟 家長互助專車專戶(協會)</h3>
+            <p>銀行代號：006（合作金庫-七賢分行）</p>
+            <p>銀行帳號：5252-717-323561</p>
+            <p>戶 名：社團法人高雄市華德福教育協會</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">
+        <p>💚 感謝您的愛心支持！</p>
+        <p>如有問題請聯絡我們：07-7885128</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .intro-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .intro-block p { color: #666; line-height: 1.8; margin-bottom: 1rem; }
+  
+  .intro-block ul { padding-left: 1.5rem; color: #666; }
+  .intro-block li { padding: 0.5rem 0; }
+
+  .bank-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(139,69,19,0.1);
+  }
+
+  .bank-card h2 { color: #8B4513; font-size: 1.5rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0d4c8; }
+
+  .bank-item {
+    background: #FFF8DC;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .bank-item:last-child { margin-bottom: 0; }
+
+  .bank-item h3 { color: #228B22; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .bank-item p { color: #666; margin: 0.3rem 0; }
+
+  .notice {
+    background: linear-gradient(135deg, #228B22, #8B4513);
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .notice p { margin: 0.5rem 0; font-size: 1.1rem; }
+
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; }
+</style>

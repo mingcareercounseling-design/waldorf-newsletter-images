@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="招生資訊">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>招生資訊</h1>
+      <p>歡迎加入光禾華德福大家庭</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="admissions-card">
+        <div class="badge">115學年度</div>
+        <h2>招生中</h2>
+        <p class="subtitle">給孩子一個不一樣的學習旅程</p>
+        
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-icon">📅</span>
+            <div>
+              <h4>報名截止</h4>
+              <p>115年03月16日（週一）12:00</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">👶</span>
+            <div>
+              <h4>招生年級</h4>
+              <p>國小部、國中部、高中部</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <h4>上課地點</h4>
+              <p>高雄市前鎮區德昌路345號</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div>
+              <h4>聯絡電話</h4>
+              <p>07-7885128</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://forms.gle/Sa2uHLVTBgXPrBKi6" target="_blank" class="btn-primary large">
+          立即線上報名
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process">
+    <div class="container">
+      <h2 class="section-title">報名流程</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>填寫報名表</h3>
+          <p>點擊上方連結填寫 Google 表單</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>參加說明會</h3>
+          <p>帶孩子一起體驗華德福課程</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>入學評估</h3>
+          <p>觀察孩子與老師的互動</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>錄取通知</h3>
+          <p>收到錄取通知後完成報到</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features">
+    <div class="container">
+      <h2 class="section-title">為什麼選擇光禾？</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>評鑑優等</h3>
+          <p>連續多年榮獲高雄市教育局評鑑最高肯定</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>世界認證</h3>
+          <p>榮登2024世界華德福學校名錄</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🏫</div>
+          <h3>專業師資</h3>
+          <p>受過完整華德福師資培訓的教師團隊</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💚</div>
+          <h3>全人發展</h3>
+          <p>重視孩子身、心、靈的均衡成長</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small {
+    background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .hero-small h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .admissions-card {
+    background: white;
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(139, 69, 19, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .admissions-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #8B4513, #228B22, #FF8C00);
+  }
+
+  .badge {
+    display: inline-block;
+    background: #228B22;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .admissions-card h2 {
+    font-size: 2.5rem;
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    background: #FFF8DC;
+    border-radius: 15px;
+  }
+
+  .info-icon {
+    font-size: 1.5rem;
+  }
+
+  .info-item h4 {
+    color: #8B4513;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .info-item p {
+    margin: 0;
+    color: #666;
+  }
+
+  .btn-primary.large {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+  }
+
+  .process {
+    background: linear-gradient(135deg, #f5deb3 0%, #fff8dc 100%);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #8B4513;
+    margin-bottom: 3rem;
+  }
+
+  .process-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .step {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FF8C00, #FFD700);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0 auto 1rem;
+  }
+
+  .step h3 {
+    color: #8B4513;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step p {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .step-arrow {
+    font-size: 2rem;
+    color: #8B4513;
+    font-weight: bold;
+  }
+
+  .features {
+    background: white;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    color: #666;
+    margin: 0;
+  }
+
+  .footer {
+    background: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .process-steps {
+      flex-direction: column;
+    }
+    
+    .step-arrow {
+      transform: rotate(90deg);
+    }
+  }
+</style>

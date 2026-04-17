@@ -1,0 +1,174 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+
+const pages = [
+  { id: 'index', name: '首頁', href: '/' },
+  { id: 'about', name: '關於光禾', href: '/about' },
+  { id: 'admissions', name: '招生資訊', href: '/admissions' },
+  { id: 'curriculum', name: '教學圖像', href: '/curriculum' },
+  { id: 'activities', name: '活動集錦', href: '/activities' },
+  { id: 'newsletter', name: '光禾通訊', href: '/newsletter' },
+  { id: 'calendar', name: '行事曆', href: '/calendar' },
+  { id: 'finance', name: '財務公開', href: '/finance' },
+  { id: 'support', name: '支持光禾', href: '/support' },
+  { id: 'contact', name: '聯絡我們', href: '/contact' },
+];
+
+const newsletterIssues = [
+  { id: '36', title: '第36期', semester: '113秋冬', pages: 66 },
+  { id: '35', title: '第35期', semester: '112秋冬', pages: 120 },
+  { id: '34', title: '第34期', semester: '112冬春夏', pages: 100 },
+];
+---
+
+<Layout title="網站管理後台">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>網站管理後台</h1>
+      <p>視覺化編輯網站內容</p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="admin-grid">
+        <!-- 頁面編輯 -->
+        <div class="admin-card">
+          <h3>📄 頁面管理</h3>
+          <p>點擊選擇要編輯的頁面</p>
+          <div class="page-list">
+            {pages.map(page => (
+              <a href={`/admin/edit/${page.id}`} class="page-item">
+                <span class="page-name">{page.name}</span>
+                <span class="page-arrow">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        
+        <!-- 光禾通訊管理 -->
+        <div class="admin-card highlight">
+          <h3>📰 光禾通訊</h3>
+          <p>上傳 PDF 並自動轉為 Flipbook</p>
+          <div class="issue-list">
+            {newsletterIssues.map(issue => (
+              <a href={`/admin/newsletter/${issue.id}`} class="issue-item">
+                <span class="issue-title">{issue.title}</span>
+                <span class="issue-info">{issue.semester} · {issue.pages}頁</span>
+              </a>
+            ))}
+          </div>
+          <a href="/admin/newsletter/new" class="add-btn">➕ 新增期數</a>
+        </div>
+        
+        <!-- Decap CMS 進階編輯 -->
+        <div class="admin-card highlight-cms">
+          <h3>✏️ 進階內容編輯器</h3>
+          <p>富文本編輯器，支援圖片、粗體、清單等格式。需要 GitHub 帳號登入。</p>
+          <a href="/admin/index.html" class="action-btn" target="_blank">開啟 Decap CMS</a>
+        </div>
+
+        <!-- 預覽 -->
+        <div class="admin-card">
+          <h3>👀 前台預覽</h3>
+          <p>查看網站前台顯示效果</p>
+          <a href="/" target="_blank" class="action-btn">開啟新視窗</a>
+        </div>
+
+        <!-- 登出 -->
+        <div class="admin-card">
+          <h3>🔒 帳號</h3>
+          <p>結束管理工作時請登出</p>
+          <a href="/admin/logout" class="action-btn logout-btn">登出</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .admin-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .admin-card h3 {
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+  }
+  
+  .admin-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-card.highlight {
+    border: 2px solid #228B22;
+  }
+  
+  .page-list, .issue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .page-item, .issue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s;
+  }
+  
+  .page-item:hover, .issue-item:hover {
+    background: #e8e8e8;
+    transform: translateX(5px);
+  }
+  
+  .issue-info {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .add-btn, .action-btn {
+    display: block;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(135deg, #8B4513, #228B22);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .add-btn:hover, .action-btn:hover {
+    opacity: 0.9;
+  }
+
+  .admin-card.highlight-cms {
+    border: 2px solid #8B4513;
+  }
+
+  .logout-btn {
+    background: linear-gradient(135deg, #666, #444);
+  }
+</style>

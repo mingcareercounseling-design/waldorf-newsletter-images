@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+---
+
+<Layout title="華德福Q&A | 光禾華德福">
+  <Navigation />
+  
+  <section class="hero-small">
+    <div class="container">
+      <h1>華德福教育 Q&A</h1>
+      <p>常見問題解答</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="qa-item">
+        <h2>Q: 華德福學校與一般學校有什麼不同？</h2>
+        <p>A: 華德福教育強調全人發展，注重孩子的意志、情感與思考均衡發展。課程設計重視藝術、手工、音樂與自然體驗，而非只著重學業成績。</p>
+      </div>
+
+      <div class="qa-item">
+        <h2>Q: 華德福學校的學業表現好嗎？</h2>
+        <p>A: 研究顯示，華德福學校的學生在創造力、解決問題能力與社交情緒發展上都有良好表現。進入大學後的適應力也很強。</p>
+      </div>
+
+      <div class="qa-item">
+        <h2>Q: 孩子能適應一般教育體系嗎？</h2>
+        <p>A: 華德福教育培養的是孩子的學習能力與創造力，這些能力讓他們能夠順利適應各種教育體系。許多華德福畢業生在高等教育中表現優異。</p>
+      </div>
+
+      <div class="qa-item">
+        <h2>Q: 家長需要具備什麼條件？</h2>
+        <p>A: 最重要的是認同華德福教育理念，願意與學校共同陪伴孩子成長。華德福教育也是一條「終身學習」的道路，家長也需要持續學習與成長。</p>
+      </div>
+
+      <div class="qa-item">
+        <h2>Q: 如何申請入學？</h2>
+        <p>A: 請參考我們的招生資訊頁面，或預約參訪實際了解學校環境。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 光禾華德福實驗學校. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-small { background: linear-gradient(135deg, #8B4513, #228B22); color: white; padding: 4rem 2rem; text-align: center; }
+  .hero-small h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  .hero-small p { font-size: 1.2rem; opacity: 0.9; }
+  .section { padding: 4rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .qa-item { background: white; padding: 2rem; border-radius: 20px; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(139,69,19,0.1); }
+  .qa-item h2 { color: #8B4513; font-size: 1.2rem; margin-bottom: 1rem; }
+  .qa-item p { color: #555; line-height: 1.8; margin: 0; }
+  .footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem; }
+</style>
