@@ -180,10 +180,14 @@ const navItems = [
   @media (max-width: 1024px) {
     .container {
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: space-between;
     }
-    
+
+    .header {
+      overflow: hidden;
+    }
+
     .nav {
       display: none;
       position: fixed;
@@ -199,7 +203,7 @@ const navItems = [
       z-index: 99;
     }
 
-    .nav.open { display: flex; flex-direction: column; }
+    .nav.open { display: flex; flex-direction: column; overflow: visible; }
     
     .nav-toggle {
       display: block !important;
